@@ -8,4 +8,4 @@ Computer science student at FER (Faculty of Electrical Engineering and Computing
 
 Interested in the theoretical foundation of machine & deep learning.
 
-My academic CV can be found [here](/assets/CV_Bruno_Gavranovic.pdf)
+My [academic CV](/assets/CV_Bruno_Gavranovic.pdf) and [github repository](https://github.com/bgavran).
