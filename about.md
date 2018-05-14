@@ -6,6 +6,10 @@ permalink: /about/
 
 Computer science student at FER (Faculty of Electrical Engineering and Computing) in Zagreb, Croatia.
 
-Interested in the theoretical foundation of machine & deep learning.
+I'm interested in understanding the fundamental principles of intelligence.
+
+I'm fascinated by category theory and I'm trying to formalize various neural network architectures and training methods in a categorical language.
+
+I'm happy to talk about any of this stuff, feel free to drop me an email!
 
 My [academic CV](/assets/CV_Bruno_Gavranovic.pdf) and [github repository](https://github.com/bgavran).
