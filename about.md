@@ -12,4 +12,4 @@ I'm fascinated by category theory and I'm trying to formalize various neural net
 
 I'm happy to talk about any of this stuff, feel free to drop me an email!
 
-My [academic CV](/assets/CV_Bruno_Gavranovic.pdf) and [github repository](https://github.com/bgavran).
+My [academic CV](/assets/Bruno_Gavranovic_CV.pdf) and [github repository](https://github.com/bgavran).
