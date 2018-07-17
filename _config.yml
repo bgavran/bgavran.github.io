@@ -25,9 +25,21 @@ github_username:  bgavran
 
 # Build settings
 markdown: kramdown
+mathjax: true
 theme: minima
+plugins:
+        - jekyll-analytics
 gems:
   - jekyll-feed
 exclude:
   - Gemfile
   - Gemfile.lock
+
+
+jekyll_analytics:
+  GoogleAnalytics:          # Add, if you want to track with Google Analytics
+    id: UA-114795894-2      # Required - replace with your tracking id
+    anonymizeIp: false      # Optional - Default: false - set to true for anonymized tracking
+
+
+
