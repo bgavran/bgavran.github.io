@@ -27,7 +27,7 @@ github_username:  bgavran
 markdown: kramdown
 mathjax: true
 theme: minima
-plugins:
+plugins_dir:
         - jekyll-analytics
 gems:
   - jekyll-feed
