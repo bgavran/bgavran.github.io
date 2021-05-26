@@ -37,8 +37,9 @@
                 <div class="menuItems">
                 <a href="./" class="research_philosophy.md">Home</a>
                 <a href="./research_philosophy.html" class="active">Research Philosophy</a>
+                <a href="./papers.html" class="research_philosophy.md">Papers</a>
                 <a href="./about.html" class="research_philosophy.md">About</a>
-                <a href="./contact.html" class="research_philosophy.md">Contact</a>
+		<!-- <a href="/contact.html" class="research_philosophy.md">Contact</a> -->
                 <a href="./archive.html" class="research_philosophy.md">Posts</a>
                 </div>
               </nav>
@@ -46,25 +47,22 @@
         </div>
         </div>
             <h3 id="research-philosophy">Research philosophy</h3>
-<p>My research is focused on understanding the fundamental principles of intelligence through the lens of category theory. The method and the goal in this case are intertwined: to understand the abstract nature of intelligence - how we structure the thoughts in our heads - it is first necessary to find a better way of structuring these thoughts. Category theory is a tool to do that. This is a strong claim which calls for an explanation. Eventually I hope to get around to writing up one.</p>
-<p>The notion of intelligence largely overlaps with notions such as life, <a href="https://golem.ph.utexas.edu/category/2019/06/behavioral_mereology.html">autopoiesis</a>, philosophy of mind, and consciousness. All of these notions have always had a mythical component assigned to them. But with science and <a href="https://www.youtube.com/watch?v=r_giN0VU7qo">mathematics in the 21st century</a> we are finally starting to have enough context to ask the right questions. As this is one of the most profound questions we can ask ourselves, I do not expect to complete this ambitious goal, only to make progress towards it, together with anybody I can work with. Even more, for reasons unknown yet, the question itself be nonsensical or ill-phrased. Asking the right questions is progress in itself.</p>
+<p>My research is focused on understanding the fundamental principles of intelligence through the lens of category theory. The method and the goal in this case are intertwined: to understand the abstract nature of intelligence - how we structure the thoughts in our heads - it is first necessary to find a better way of structuring these thoughts. Category theory is a tool to do that. This is a strong claim which calls for an explanation. Eventually I hope to get around to writing one.</p>
+<p>The notion of intelligence largely overlaps with notions such as life, <a href="https://golem.ph.utexas.edu/category/2019/06/behavioral_mereology.html">autopoiesis</a>, philosophy of mind, consciousness, and <a href="https://julesh.com/2019/11/27/categorical-cybernetics-a-manifesto/">cybernetics</a>. All of these notions have always had a mythical component assigned to them. But with science and <a href="https://www.youtube.com/watch?v=r_giN0VU7qo">mathematics in the 21st century</a> we are finally starting to have enough context to ask the right questions. At the moment my work is mostly theoretical (see <a href="./papers.html">papers</a>), but the plan is to eventually start writing actual <a href="https://github.com/bgavran">code</a>. Even more, for reasons unknown yet, the question of understanding intelligence might itself be nonsensical or ill-phrased. I considering framing the issue and asking the right questions to be progress in itself.</p>
 <center>
-<strong>“To understand the question is very nearly to know the answer.”</strong> - Tom Leinster, Basic Category Theory
+<strong>“To understand the question is very nearly to know the answer.”</strong> - Tom Leinster, <a href="https://arxiv.org/abs/1612.09375">Basic Category Theory</a>
 </center>
-<p>In essence, I am betting by investing my resources into this that the required ingredient to make progress on these abstract questions of intelligence and consciousness is the study of abstraction itself: category theory. I’ll eventually write up more thoughts on all of this: how I understand the role of category theory in modern science and how it can be used to understand machine learning.</p>
-<p><em>I have a long-term research philosophy which I try to keep updated as I learn more about the world. I am also learning how to best express this philosophy. As such, these are still rough notes that I keep coming back to in order to reflect on and improve them. Please do challenge anything that doesn’t come across as clear and compelling. I’m also trying to scale up these endeavours, so if your goals overlap, feel free to <a href="./contact.html">get in touch</a>!</em></p>
+<p>In essence, by investing my resources into this, I am betting that the required ingredient to make progress on these abstract questions of intelligence and consciousness is the study of abstraction itself: category theory. <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> I’ll eventually write up more thoughts on all of this: how I understand the role of category theory in modern science and how it can be used to understand machine learning.</p>
+<p><em>I am learning how to best express this long-term research philosophy. These are still rough notes that I keep coming back to in order to reflect on and improve them. Please do challenge anything that doesn’t come across as clear and compelling. I’m also trying to scale up these endeavours, so if your goals overlap, feel free to <a href="./about.html">get in touch</a>!</em></p>
 <hr />
-<p>While this is a long-term goal, the work I am currently doing as a part of my PhD is more concrete. I am still using category theory, but now to formalize and distill the essence of information flow in artificial neural networks. This allows me to make tangible, measurable progress on the long-term research goal.</p>
-<p>I’ll write more about this when I can. There are several papers in the works, but for now the best way to get acquainted with the work done is to see my <a href="https://www.youtube.com/watch?v=tKM8JdXJEII">CyberCat presentation</a>. It assumes knowledge of category theory, most notably that of lenses/optics.</p>
-<center>
-<blockquote class="twitter-tweet">
-<p lang="en" dir="ltr">
-The video is up!<br><br>Proper summary forthcoming, but for now TLDR:<br><br>“Cartography of Neural networks”; we're working on a formal, 2-categorical description of information flow in neural networks based on the language of lenses, and relating it to game theory. <a href="https://t.co/AXXOZxaupd">https://t.co/AXXOZxaupd</a>
-</p>
-— Bruno Gavranović (<span class="citation">@bgavran3</span>) <a href="https://twitter.com/bgavran3/status/1335321421321547781?ref_src=twsrc%5Etfw">December 5, 2020</a>
-</blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</center>
+<p>While this is a long-term goal, the work I am currently doing as a part of my PhD is more concrete. I am still using category theory, but now to formalize and distill the essence of information flow in artificial neural networks, with detours into game theory. This allows me to make tangible, measurable progress on the long-term research goal.</p>
+<p>I’ve written a number of <a href="./papers.html">papers</a> which unpack the building blocks of neural networks into composable pieces: automatic differentiation in terms of reverse derivative categories and lenses, neural network weights in terms of the <span class="math inline"><strong>P</strong><strong>a</strong><strong>r</strong><strong>a</strong></span> construction, and various neural networks as compositions of parameterized lenses. I am currently working on formalizing specific neural network architectures, especially Generative Adversarial Networks, whose game theoretic properties I am aiming to connect to existing work in <a href="https://julesh.com/2017/11/09/compositional-game-theory-reading-list/">compositional game theory</a>.</p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><em>Category theory</em> is here an umbrella term which includes type theory, homotopy theory, and various (higher) combinations thereof.<a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
         <div id="footer">
           <div class="inside">
             Site proudly generated by
