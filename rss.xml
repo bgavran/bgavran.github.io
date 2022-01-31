@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
     xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
-        <title>Blog</title>
+        <title>Bruno Gavranović's blog posts</title>
         <link>http://brunogavranovic.com</link>
-        <description><![CDATA[Blog posts of Bruno Gavranović]]></description>
+        <description><![CDATA[Blog post from the website www.brunogavranovic.com]]></description>
         <atom:link href="http://brunogavranovic.com/rss.xml" rel="self"
                    type="application/rss+xml" />
         <lastBuildDate>Wed, 05 Jan 2022 00:00:00 UT</lastBuildDate>
