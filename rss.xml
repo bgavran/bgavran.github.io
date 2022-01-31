@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Blog</title>
+        <link>http://brunogavranovic.com</link>
+        <description><![CDATA[Blog posts of Bruno Gavranović]]></description>
+        <atom:link href="http://brunogavranovic.com/rss.xml" rel="self"
+                   type="application/rss+xml" />
+        <lastBuildDate>Wed, 05 Jan 2022 00:00:00 UT</lastBuildDate>
+        <item>
+    <title>Lenses to the left of me, Prisms to the right</title>
+    <link>http://brunogavranovic.com/posts/2022-01-05-lenses-to-the-left-of-me.html</link>
+    <description><![CDATA[There's an interesting way to think about lenses and prisms. Lenses model processes that perform internal computation and interact with the environment. Prisms model processes that perform internal computation or interact with the environment. Let me explain what I mean.]]></description>
+    <pubDate>Wed, 05 Jan 2022 00:00:00 UT</pubDate>
+    <guid>http://brunogavranovic.com/posts/2022-01-05-lenses-to-the-left-of-me.html</guid>
+    <dc:creator>Bruno Gavranović</dc:creator>
+</item>
+<item>
+    <title>Meta-learning and Monads</title>
+    <link>http://brunogavranovic.com/posts/2021-10-13-meta-learning-and-monads.html</link>
+    <description><![CDATA[Meta learning is an exciting approach to machine learning. Instead of training models to do particular tasks, it trains these models to learn how to do those tasks. Meta learning is essentially learning squared':' learning how to learn. There's been plenty of exciting developments in this area, but in this blog post I want to explore one foundational aspect of it what it means to meta learn.]]></description>
+    <pubDate>Wed, 13 Oct 2021 00:00:00 UT</pubDate>
+    <guid>http://brunogavranovic.com/posts/2021-10-13-meta-learning-and-monads.html</guid>
+    <dc:creator>Bruno Gavranović</dc:creator>
+</item>
+<item>
+    <title>Riding upon the fields on the horse of mathematics</title>
+    <link>http://brunogavranovic.com/posts/2021-08-15-horse_of_mathematics.html</link>
+    <description><![CDATA[I admire the elegance of your method of computation; it must be nice to ride through these fields upon the horse of true mathematics while the like of us have to make our way laboriously on foot. This quote from Einstein resonates with me in a pretty surprising context. Einstein said this in a letter to Levi-Civita, praising what's now called the Einstein notation. After watching Kevin Buzzard's talk on mathematics being done with computers, I can't help but feel the same way.]]></description>
+    <pubDate>Sun, 15 Aug 2021 00:00:00 UT</pubDate>
+    <guid>http://brunogavranovic.com/posts/2021-08-15-horse_of_mathematics.html</guid>
+    <dc:creator>Bruno Gavranović</dc:creator>
+</item>
+<item>
+    <title>Towards Categorical Foundations of Learning</title>
+    <link>http://brunogavranovic.com/posts/2021-03-03-Towards-Categorical-Foundations-Of-Neural-Networks.html</link>
+    <description><![CDATA[Having put up on Arxiv our paper on Categorical Foundations of Gradient-Based Learning, I thought I'd write a short post updating everyone on the progress we made and the staggering amount of potential I believe Category Theory has in the field of Deep Learning.]]></description>
+    <pubDate>Wed, 03 Mar 2021 00:00:00 UT</pubDate>
+    <guid>http://brunogavranovic.com/posts/2021-03-03-Towards-Categorical-Foundations-Of-Neural-Networks.html</guid>
+    <dc:creator>Bruno Gavranović</dc:creator>
+</item>
+<item>
+    <title>Dinatural transformations</title>
+    <link>http://brunogavranovic.com/posts/2019-09-12-dinatural-transformations.html</link>
+    <description><![CDATA[In this blog post I will talk about dinatural transformations, which is a concept found in category theory. I'll describe the intuition behind them, and how you could have arrived at the definition yourself.]]></description>
+    <pubDate>Thu, 12 Sep 2019 00:00:00 UT</pubDate>
+    <guid>http://brunogavranovic.com/posts/2019-09-12-dinatural-transformations.html</guid>
+    <dc:creator>Bruno Gavranović</dc:creator>
+</item>
+
+    </channel>
+</rss>
