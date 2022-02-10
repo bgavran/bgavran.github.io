@@ -53,7 +53,7 @@
     
 </div>
 
-<h1 id="optics-vs-lenses-operationally">Optics vs Lenses, operationally</h1>
+<h1 id="optics-vs-lenses-operationally">Optics vs Lenses, Operationally</h1>
 <p>I’ve been thinking <a href="https://www.brunogavranovic.com/posts/2022-01-05-lenses-to-the-left-of-me.html">a lot</a> about lenses and optics. They’re both abstract gadgets that model various sorts of bidirectional processes. They are found in <a href="https://arxiv.org/abs/2103.01931">machine learning</a>, <a href="https://arxiv.org/abs/1603.04641">game theory</a>, <a href="https://arxiv.org/abs/2111.10968">database systems</a>, and so on. While optics are more general, it’s understood that they’re equivalent to lenses in the special case of a cartesian monoidal category <img width="12" alt="\mathcal{C}" height="12" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAZCAQAAACBIibWAAAA1UlEQVR4nL1UURHDIAyNBSxgAQtYwMIsYCEWsDALWKiFWsDCFtLCXQmBfe3lrnel76VpkleANQx4DrvhMTXCAZ8eYU1HKERHjsKCt062RD3A9fvAAtTojjKm4WRRUqXn4SwS/ZzTDT0odH3iJMFrLsBJrV7PXx/N8mdtCnnVC4mrF25PbEC91jlqL9Ke1mDX05S4xu9/F+CfBJudlwLto4OcT2TBbA6GvFHkctjbiHIrk1ZqZkEZXl4Nqqy263ZHFhnKmx9WFQi33VuU/eTrryVzoNbiL7ZkZyKHSiAGAAAAAElFTkSuQmCC" class="display-math" style="margin:0; vertical-align:-1px;" />. In this blog post I’ll explain how this equivalence is denotational in nature, and the result of erasure of important operational data. Even more, sometimes it’s said that lenses are something we can simplify optics to. I’ll try to convey how this is misleading – concrete lenses don’t reduce any complexity; they just shove it under the rug.</p>
 <p>Let’s see what that means.</p>
 <h2 id="lenses-are-optics-with-one-choice-removed">Lenses are optics with one choice removed</h2>
