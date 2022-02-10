@@ -9,7 +9,7 @@
                    type="application/rss+xml" />
         <lastBuildDate>Thu, 10 Feb 2022 00:00:00 UT</lastBuildDate>
         <item>
-    <title>Optics vs Lenses, operationally</title>
+    <title>Optics vs Lenses, Operationally</title>
     <link>http://brunogavranovic.com/posts/2022-02-10-optics-vs-lenses-operationally.html</link>
     <description><![CDATA[I've been thinking about lenses and optics a lot lately. They're both abstract gadgets that model various sorts of bidirectional processes, appearing in machine learning, game theory, database systems, and so on. While optics are more general, it's understood that they're equivalent to lenses in the special case of a cartesian monoidal category $$\mathcal{C}$$. In this blog post I'll explain how this equivalence is denotational in nature, and the result of erasure of important operational data. Even more, sometimes it's said that lenses are something we can simplify optics to. I'll try to convey how this is misleading -- concrete lenses don't reduce any complexity; they just shove it under the rug.]]></description>
     <pubDate>Thu, 10 Feb 2022 00:00:00 UT</pubDate>
