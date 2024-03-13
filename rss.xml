@@ -7,8 +7,16 @@
         <description><![CDATA[Blog post from the website www.brunogavranovic.com]]></description>
         <atom:link href="http://brunogavranovic.com/rss.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Sun, 12 Feb 2023 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Wed, 13 Mar 2024 00:00:00 UT</lastBuildDate>
         <item>
+    <title>My PhD Thesis is out!</title>
+    <link>http://brunogavranovic.com/posts/2024-03-13-my-thesis-is-out.html</link>
+    <description><![CDATA[After four years in the making, I've finally defended, and published my PhD thesis.]]></description>
+    <pubDate>Wed, 13 Mar 2024 00:00:00 UT</pubDate>
+    <guid>http://brunogavranovic.com/posts/2024-03-13-my-thesis-is-out.html</guid>
+    <dc:creator>Bruno Gavranović</dc:creator>
+</item>
+<item>
     <title>Two kinds of Prisms</title>
     <link>http://brunogavranovic.com/posts/2023-02-12-two-kinds-of-prisms.html</link>
     <description><![CDATA[In this short blog post I describe how there are two competing notions of a prism, and outline reasons for why one of them is better than the other one.]]></description>
