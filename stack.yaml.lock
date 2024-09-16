@@ -7,27 +7,48 @@ packages:
 - completed:
     hackage: latex-formulae-hakyll-0.2.0.4@sha256:8ed5ef87625c9fc6154aa29d7d17d1d2391a3e4f4360bf15c522a37889d4aa37,1533
     pantry-tree:
-      size: 233
       sha256: 4546e48ecc02c5c389e274e70c407915b0efceb025bd981728245751676d8a62
+      size: 233
   original:
     hackage: latex-formulae-hakyll-0.2.0.4@sha256:8ed5ef87625c9fc6154aa29d7d17d1d2391a3e4f4360bf15c522a37889d4aa37
 - completed:
     hackage: latex-formulae-image-0.1.1.4@sha256:48228b82fbc09ebb7551eaddfbd169a81027b504bd06349522daa4b141e215ee,2361
     pantry-tree:
-      size: 230
       sha256: 4f691ed8697d5927654741313e7ef4620ec9769e2bd1b223996e153228598736
+      size: 230
   original:
     hackage: latex-formulae-image-0.1.1.4@sha256:48228b82fbc09ebb7551eaddfbd169a81027b504bd06349522daa4b141e215ee
 - completed:
     hackage: latex-formulae-pandoc-0.2.0.6@sha256:877ff7e2540fdd85aeaaaa2ac1002c775f1dd0a3880e01207683447793f88fa4,2051
     pantry-tree:
-      size: 293
       sha256: 50f2365b3886728cc8c1c1e9bb1c8674de4051062cc6069acc59d02fb8fb5721
+      size: 293
   original:
     hackage: latex-formulae-pandoc-0.2.0.6@sha256:877ff7e2540fdd85aeaaaa2ac1002c775f1dd0a3880e01207683447793f88fa4
+- completed:
+    hackage: pandoc-2.2.3.1@sha256:12ed45ca3c755a13675b9b4df7606999f717a3b0048d4ab2d3e6985973521e8a,29891
+    pantry-tree:
+      sha256: 3bae0561cfe591fa378c6c132aa0f7b02d57b1c5ec95444c05b09c8db5489612
+      size: 69293
+  original:
+    hackage: pandoc-2.2.3.1
+- completed:
+    hackage: HsYAML-0.1.2.0@sha256:8e09629f5f023c5a2454000aba83c1a0f4a8ea280433a1614210fbf259add848,3867
+    pantry-tree:
+      sha256: b5aa38b4298f461a46f724ed898d3d5c610bb7ca351809946cfeaa2ed73d6cb3
+      size: 878
+  original:
+    hackage: HsYAML-0.1.2.0@sha256:8e09629f5f023c5a2454000aba83c1a0f4a8ea280433a1614210fbf259add848,3867
+- completed:
+    hackage: haddock-library-1.6.0@sha256:ce8dd701f70bd5ed9729c94c147d308ceb9edfbdc2b3491e8dcf3e992e76d6e5,4625
+    pantry-tree:
+      sha256: 18159d6618139866883388a968492a988c47259a20cae19b52eeb499412b2b96
+      size: 2269
+  original:
+    hackage: haddock-library-1.6.0@sha256:ce8dd701f70bd5ed9729c94c147d308ceb9edfbdc2b3491e8dcf3e992e76d6e5,4625
 snapshots:
 - completed:
-    size: 537868
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/9/21.yaml
-    sha256: 0a3be91c2bce851de4755003cfb1d85d62b6f90276231fcc305729c0c5c864a9
-  original: lts-9.21
+    sha256: 2b315ae05e003ce72e96e54849e8f8479959c45f750a814a018ff88bdaeaeff9
+    size: 502604
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/12/9.yaml
+  original: lts-12.9
