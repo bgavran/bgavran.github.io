@@ -21,6 +21,60 @@
         <script src="./css/selectfile.js"></script>
         <link rel="stylesheet" type="text/css" title="hakyll_theme" href="./css/theprofessional.css" />
         <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
+        <!-- MathJax font size adjustment -->
+        <style>
+            mjx-container {
+                font-size: 80% !important;
+            }
+
+            /* Scale TikZ diagrams uniformly */
+            .page svg {
+                transform: scale(1.2) !important;
+                transform-origin: center !important;
+            }
+
+            /* Improve code blocks */
+            pre, code {
+                background-color: #f8f9fa;
+                border: 1px solid #e1e4e8;
+                border-radius: 3px;
+                font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+                font-size: 0.9em;
+            }
+
+            pre {
+                padding: 1em;
+                overflow-x: auto;
+            }
+
+            code {
+                padding: 0.2em 0.4em;
+            }
+
+            pre code {
+                background: none;
+                border: none;
+                padding: 0;
+            }
+        </style>
+
+        <!-- MathJax for regular math -->
+        <script>
+            MathJax = {
+                tex: {
+                    macros: {
+                        coloneqq: '\\mathrel{\\vcenter{:}}=',
+                        enskip: '\\hspace{0.5em}'
+                    }
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+        <!-- TikZJax for TikZ diagrams -->
+        <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+        <script src="https://tikzjax.com/v1/tikzjax.js"></script>
     </head>
     <body>
         <div class="highbar">&nbsp;</div>
@@ -35,19 +89,20 @@
             <div id="navigation" class="pageslinks">
               <nav class="menuNav">
                 <div class="menuItems">
-                <a href="./" class="papers.md">Home</a>
-                <a href="./archive.html" class="papers.md">Posts</a>
+                <a href="./" class="header_pages/papers.md">Home</a>
+                <a href="./archive.html" class="header_pages/papers.md">Posts</a>
                 <a href="./papers.html" class="active">Papers</a>
-                <a href="./research_philosophy.html" class="papers.md">Research Philosophy</a>
-                <a href="./about.html" class="papers.md">About</a>
-		<!-- <a href="/contact.html" class="papers.md">Contact</a> -->
+                <a href="./research_programme.html" class="header_pages/papers.md">Research Programme</a>
+                <a href="./about.html" class="header_pages/papers.md">About</a>
+		<!-- <a href="/contact.html" class="header_pages/papers.md">Contact</a> -->
                 </div>
               </nav>
             </div>
         </div>
         </div>
-            <p>The essence of my work can be put under the umbrella term <a href="https://cybercat.institute/">categorical cybernetics</a>, where lately I’ve specifically been focusing on <a href="https://categoricaldeeplearning.com/">categorical deep learning</a>.</p>
-<p>Most of these papers assume knowledge of category theory, most notably that of lenses/optics. If you’re new to category theory, check out the <a href="https://github.com/bgavran/Category_Theory_Resources">list of resources for learning category theory</a>.</p>
+            <p>My work deals mainly with category theoretical models of various aspects of deep learning: architectures, optimisers, automatic differentiation, and properties we can prove about each of those.
+Some of my work is more category-theoretical in nature, and some of it touches on game theory as well.</p>
+<p>If you’re new to category theory, I recommend checking out the <a href="./archive.html">blog posts</a>, or this <a href="https://github.com/bgavran/Category_Theory_Resources">list of resources for learning category theory</a>.</p>
 <hr />
 <h2 id="categorical-deep-learning-an-algebraic-theory-of-architectures">Categorical Deep Learning: An Algebraic Theory of Architectures</h2>
 <center>
@@ -92,7 +147,8 @@
 </li>
 </ul>
 </div>
-<p>We define a bicategory of Graph Convolutional Neural Networks (GCNN). We factor it using our existing categorical constructions for deep learning: <em>Para</em> and <em>Lens</em>, but on a specific base category - the CoKleisli category of the product comonad. This gives us a high-level categorical account of a part of the inductive bias of GCNNs. Lastly, we hypothesize about possible generalisations of this categorical model to general message passing neural networks.</p>
+<p>We define a bicategory of Graph Convolutional Neural Networks (GCNN). We factor it using our existing categorical constructions for deep learning: <em>Para</em> and <em>Lens</em>, but on a specific base category - the CoKleisli category of the product comonad. This gives us a high-level categorical account of a part of the inductive bias of GCNNs.
+Lastly, we hypothesize about possible generalisations of this categorical model to general message passing neural networks.</p>
 <hr />
 <h2 id="space-time-tradeoffs-of-lenses-and-optics-via-higher-category-theory">Space-time tradeoffs of lenses and optics via higher category theory</h2>
 <center>
@@ -218,11 +274,10 @@
 <p>We build a category-theoretic formalism around a neural network system called CycleGAN, an approach to unpaired image-to-image translation. We relate it to categorical databases, and show that a special class of functors can be learned using gradient descent. We design a novel neural network capable of inserting and deleting objects from images without paired data and evaluate it on the CelebA dataset.</p>
         <div id="footer">
           <div class="inside">
+            Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0</a>
             Site proudly generated by
             <a href="http://jaspervdj.be/hakyll">Hakyll</a>.
-            This theme was designed by <a href="http://twitter.com/katychuang">Dr. Kat</a> and showcased in the <a href="http://katychuang.com/hakyll-cssgarden/gallery/">Hakyll-CSSGarden</a>
-
-
+            The theme originates in the <a href="http://katychuang.com/hakyll-cssgarden/gallery/">Hakyll-CSSGarden</a>.
           </div>
         </div>
 

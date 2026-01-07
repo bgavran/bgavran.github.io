@@ -19,7 +19,7 @@
 <item>
     <title>Two kinds of Prisms</title>
     <link>http://brunogavranovic.com/posts/2023-02-12-two-kinds-of-prisms.html</link>
-    <description><![CDATA[In this short blog post I describe how there are two competing notions of a prism, and outline reasons for why one of them is better than the other one.]]></description>
+    <description><![CDATA[In this short blog post I describe two different notions of a prism, describe their relationship, and outline reasons for why one gives us a cleaner operational interpretation than the other.]]></description>
     <pubDate>Sun, 12 Feb 2023 00:00:00 UT</pubDate>
     <guid>http://brunogavranovic.com/posts/2023-02-12-two-kinds-of-prisms.html</guid>
     <dc:creator>Bruno Gavranović</dc:creator>
@@ -35,7 +35,7 @@
 <item>
     <title>Optics vs Lenses, Operationally</title>
     <link>http://brunogavranovic.com/posts/2022-02-10-optics-vs-lenses-operationally.html</link>
-    <description><![CDATA[I've been thinking about lenses and optics a lot lately. They're both abstract gadgets that model various sorts of bidirectional processes, appearing in machine learning, game theory, database systems, and so on. While optics are more general, it's understood that they're equivalent to lenses in the special case of a cartesian monoidal category $$\mathcal{C}$$. In this blog post I'll explain how this equivalence is denotational in nature, and the result of erasure of important operational data. Even more, sometimes it's said that lenses are something we can simplify optics to. I'll try to convey how this is misleading -- concrete lenses don't reduce any complexity; they just shove it under the rug.]]></description>
+    <description><![CDATA[I've been thinking about lenses and optics a lot lately. They're both abstract gadgets that model various sorts of bidirectional processes, appearing in machine learning, game theory, database systems, and so on. While optics are more general, it's understood that they're equivalent to lenses in the special case of a cartesian monoidal category $\mathcal{C}$. In this blog post I'll explain how this equivalence is denotational in nature, and the result of erasure of important operational data. Even more, sometimes it's said that lenses are something we can simplify optics to. I'll try to convey how this is misleading -- concrete lenses don't reduce any complexity; they just shove it under the rug.]]></description>
     <pubDate>Thu, 10 Feb 2022 00:00:00 UT</pubDate>
     <guid>http://brunogavranovic.com/posts/2022-02-10-optics-vs-lenses-operationally.html</guid>
     <dc:creator>Bruno Gavranović</dc:creator>
@@ -67,7 +67,7 @@
 <item>
     <title>Towards Categorical Foundations of Learning</title>
     <link>http://brunogavranovic.com/posts/2021-03-03-Towards-Categorical-Foundations-Of-Neural-Networks.html</link>
-    <description><![CDATA[Having put up on Arxiv our paper on Categorical Foundations of Gradient-Based Learning, I thought I'd write a short post updating everyone on the progress we made and the staggering amount of potential I believe Category Theory has in the field of Deep Learning.]]></description>
+    <description><![CDATA[Having posted our paper on Categorical Foundations of Gradient-Based Learning on arXiv, I decided to write a short update on the progress we made, and the staggering amount of potential I believe Category Theory has in the field of Deep Learning.]]></description>
     <pubDate>Wed, 03 Mar 2021 00:00:00 UT</pubDate>
     <guid>http://brunogavranovic.com/posts/2021-03-03-Towards-Categorical-Foundations-Of-Neural-Networks.html</guid>
     <dc:creator>Bruno Gavranović</dc:creator>
@@ -75,7 +75,7 @@
 <item>
     <title>Dinatural transformations</title>
     <link>http://brunogavranovic.com/posts/2019-09-12-dinatural-transformations.html</link>
-    <description><![CDATA[In this blog post I will talk about dinatural transformations, which is a concept found in category theory. I'll describe the intuition behind them, and how you could have arrived at the definition yourself.]]></description>
+    <description><![CDATA[In this blog post I will talk about dinatural transformations, which is a concept found in category theory. I'll describe the intuition behind them, and how you could have arrived at their definition yourself.]]></description>
     <pubDate>Thu, 12 Sep 2019 00:00:00 UT</pubDate>
     <guid>http://brunogavranovic.com/posts/2019-09-12-dinatural-transformations.html</guid>
     <dc:creator>Bruno Gavranović</dc:creator>

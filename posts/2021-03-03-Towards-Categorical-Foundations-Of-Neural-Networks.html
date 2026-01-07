@@ -21,6 +21,60 @@
         <script src="../css/selectfile.js"></script>
         <link rel="stylesheet" type="text/css" title="hakyll_theme" href="../css/theprofessional.css" />
         <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
+        <!-- MathJax font size adjustment -->
+        <style>
+            mjx-container {
+                font-size: 80% !important;
+            }
+
+            /* Scale TikZ diagrams uniformly */
+            .page svg {
+                transform: scale(1.2) !important;
+                transform-origin: center !important;
+            }
+
+            /* Improve code blocks */
+            pre, code {
+                background-color: #f8f9fa;
+                border: 1px solid #e1e4e8;
+                border-radius: 3px;
+                font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+                font-size: 0.9em;
+            }
+
+            pre {
+                padding: 1em;
+                overflow-x: auto;
+            }
+
+            code {
+                padding: 0.2em 0.4em;
+            }
+
+            pre code {
+                background: none;
+                border: none;
+                padding: 0;
+            }
+        </style>
+
+        <!-- MathJax for regular math -->
+        <script>
+            MathJax = {
+                tex: {
+                    macros: {
+                        coloneqq: '\\mathrel{\\vcenter{:}}=',
+                        enskip: '\\hspace{0.5em}'
+                    }
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+        <!-- TikZJax for TikZ diagrams -->
+        <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+        <script src="https://tikzjax.com/v1/tikzjax.js"></script>
     </head>
     <body>
         <div class="highbar">&nbsp;</div>
@@ -38,7 +92,7 @@
                 <a href="../" class="posts/2021-03-03-Towards-Categorical-Foundations-Of-Neural-Networks.md">Home</a>
                 <a href="../archive.html" class="posts/2021-03-03-Towards-Categorical-Foundations-Of-Neural-Networks.md">Posts</a>
                 <a href="../papers.html" class="posts/2021-03-03-Towards-Categorical-Foundations-Of-Neural-Networks.md">Papers</a>
-                <a href="../research_philosophy.html" class="posts/2021-03-03-Towards-Categorical-Foundations-Of-Neural-Networks.md">Research Philosophy</a>
+                <a href="../research_programme.html" class="posts/2021-03-03-Towards-Categorical-Foundations-Of-Neural-Networks.md">Research Programme</a>
                 <a href="../about.html" class="posts/2021-03-03-Towards-Categorical-Foundations-Of-Neural-Networks.md">About</a>
 		<!-- <a href="/contact.html" class="posts/2021-03-03-Towards-Categorical-Foundations-Of-Neural-Networks.md">Contact</a> -->
                 </div>
@@ -54,24 +108,29 @@
 </div>
 
 <h1 id="towards-categorical-foundations-of-learning">Towards Categorical Foundations of Learning</h1>
-<p>Having put up on Arxiv our paper on <a href="https://arxiv.org/abs/2103.01931">Categorical Foundations of Gradient-Based Learning</a>, I thought I’d write a short post updating everyone on the progress we made and the staggering amount of potential I believe Category Theory has in the field of Deep Learning.</p>
+<p>Having posted our paper on <a href="https://arxiv.org/abs/2103.01931">Categorical Foundations of Gradient-Based Learning</a> on arXiv, I decided to write a short update on the progress we made, and the staggering amount of potential I believe Category Theory has in the field of Deep Learning.</p>
 <p>Deep Learning is notoriously an <a href="http://colah.github.io/posts/2015-09-NN-Types-FP/">ad-hoc field</a>. Despite its tremendous success, we lack a unifying perspective for this growing body of work. We have entire paradigms of how to effectively learn, but it’s still hard to precisely state what a neural network is and cover all the use cases. This is the contribution of our paper. We’re making a <em>step forward</em> in that regard by creating a foundation of neural networks terms of three things: 1) Parameterized maps, 2) Bidirectional data structures (Lenses/Optics) and 3) Reverse derivative categories.</p>
-<p>Since our work is based on category theory, you might wonder the aforementioned concepts are, what <a href="https://arxiv.org/abs/1809.05923">Category theory even is</a>, or even why you would want to <a href="https://twitter.com/bgavran3/status/1335560269511204866">abstract away some details in neural networks</a>? This is a question that deserves a proper answer. For now I’ll just say that our paper really answers the following question in a very precise way: “What is the minimal structure, in some suitable sense, that you need to have to perform learning?”. This is certainly valuable. Why? If you try answering that question you might discover, just as we did, that this structure ends up encapsulated some strange types of learning, with hints to even meta-learning. For instance, after defining our framework on neural networks on Euclidean spaces we realized that it includes learning not just in Euclidean spaces, but also on <a href="https://arxiv.org/abs/2101.10488">Boolean circuits</a>. This is pretty strange, how can you “differentiate” a Boolean circuit? It turns out you can, and this falls under the same framework of <a href="https://arxiv.org/abs/1910.07065">Reverse derivative categories</a>.</p>
+<p>Since our work is based on category theory, you might wonder the aforementioned concepts are, what <a href="https://arxiv.org/abs/1809.05923">Category theory even is</a>, or even why you would want to <a href="https://twitter.com/bgavran3/status/1335560269511204866">abstract away some details in neural networks</a>?
+This is a question that deserves a proper answer. For now I’ll just say that our paper really answers the following question in a very precise way: “What is the minimal structure, in some suitable sense, that you need to have to perform learning?”. This is certainly valuable. Why? If you try answering that question you might discover, just as we did, that this structure ends up encapsulated some strange types of learning, with hints to even meta-learning. For instance, after defining our framework on neural networks on Euclidean spaces we realized that it includes learning not just in Euclidean spaces, but also on <a href="https://arxiv.org/abs/2101.10488">Boolean circuits</a>. This is pretty strange, how can you “differentiate” a Boolean circuit? It turns out you can, and this falls under the same framework of <a href="https://arxiv.org/abs/1910.07065">Reverse derivative categories</a>.</p>
 <p>Another thing we discovered is that all the optimizers (standard gradient descent, momentum, Nesterov momentum, Adagrad, Adam etc.) are the same kind of structure neural networks themselves are - giving us hints that optimizers are in some sense “hardwired meta-learners”, just as <a href="https://arxiv.org/abs/1606.04474">Learning to Learn by Gradient Descent by Gradient Descent</a> describes.</p>
-<p>Of course, I still didn’t tell you what this framework is, nor did I tell you how we defined neural networks. I’ll do that briefly now. One of the main insights from our paper is that entirety of neural network learning can be framed in the language of <a href="https://arxiv.org/abs/1606.04474"><em>optics</em></a>, a bidirectional data structure used to encapsulate the essence of the forward-backward interaction (very closely related to <a href="https://julesh.com/2018/08/16/lenses-for-philosophers/">lenses</a>). This forward-backward interaction is animated below and summarized <a href="https://twitter.com/bgavran3/status/1364644337968103428">here</a>.</p>
+<p>Of course, I still didn’t tell you what this framework is, nor did I tell you how we defined neural networks. I’ll do that briefly now.
+One of the main insights from our paper is that entirety of neural network learning can be framed in the language of <a href="https://arxiv.org/abs/1606.04474"><em>optics</em></a>, a bidirectional data structure used to encapsulate the essence of the forward-backward interaction (very closely related to <a href="https://julesh.com/2018/08/16/lenses-for-philosophers/">lenses</a>). This forward-backward interaction is animated below and summarized <a href="https://twitter.com/bgavran3/status/1364644337968103428">here</a>.</p>
 <center>
 <img src="../images/optics.gif" alt="Optics" width="600" />
 </center>
-<p>Optics tell us that data is propagated forward, some intermediate state is saved, and then data is propagated backward - and nothing else<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. This is actually great, because we can then instantiate optics in a variety of settings. From propagating back gradients, to interesting things like <a href="https://arxiv.org/abs/1910.03656">propagating back utilities in game theory</a>, to using optics for <a href="https://blog.statebox.org/on-lawful-lenses-6e18a1e17bdf">lawful</a> updates - encapsulating the previously mentioned optimizers. But the general idea of optics is - just pick a base space/category/setting <img width="11" alt="\mathcal{C}" height="12" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAZCAQAAABwKX1bAAAA0klEQVR4nL2TURXDIAxFY6EWsICFWsACFmoBC7VQC1ioBSzUAnvN2LqmCd1+9nLaD3JJAglEPXkKlGC+S0EOUKH6tmSjA5yVFvwjvpXxbBewwuk+8uz4bMGbcD3xaMEybQRc9JoL8EGsrlbsWbmB0Yq9O66xFwSRa6zcv92zPJ//tnsvJatGXcVuxVXubi7OCoyP3+LpD3j4DbeOGmTeyLh27wN3W7TPtSc2qXmVecyMbyJO7D2M2p7Z2CrOKM+comNDbZmSPrrHsSbMd4YlvQSiB9UGZ4gkQsCwAAAAAElFTkSuQmCC" class="inline-math" style="margin:0; vertical-align:-1px;" /> in which you can compose processes in sequence and in parallel - and then you can form the space/category <img width="68" alt="\mathbf{Optic}(\mathcal{C})" height="17" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIkAAAAiCAQAAADB9jJvAAAECUlEQVR4nN1Z7ZWsIAylBVuwBVugBVuwhWmBFmyBFmzBFmzBFmZBCZ83ODizb86+69n9wUAglyQkIMT/Aynmpv6d0OavEb2ZRoqhddhXMIn1QsFBjEKZb4halldJ6cXDTPCMvtWI6t9Z8SXUMY+6OXoQW0W53sjdIm3CLJbIS3TG/OywzdDSO4GTEzi3G1ohXcL2wS93vCV1Y8d1B9na/J/M37nRS/S7vtqGgVX+JGp/043s8hCkp+RxS+rC/DIYEpbIvnunnUha8DY5AfsxRMNfP0EKR0nnZt5vuCevlNVnLvo+jb3EmGvOs7plYfegZde89goLQ4ld7Gy+O3RzKllCcuuZjvXn/XKSPFQRfNp71HHu0WfRM85m40u5uStUf+Ucb3cK855FQZCzoyvoX6DkYSQiZ5vB1klgIxYKyxh9gKuB+jCGVsX8gvx2LFBJCTdOM2emxJZGToEmiBfwTAKwjfWLa7VWRMfcaiYP1pbmBYv74uzgbNmBjY5mrj0amy69y86PeJ0t7g2PlMVPWgP1ooCmfMvzWPpsVJBFHjMcCm9VSujXmJLOSZ+PHFq6bYsXL6Hqp4O3hOoVmcLeREls/srTFPyxcyquoB+GLCjpnMUFu6DZwzwPGPvUpbUjvQo836Yk9VKKTaroh1FSogtH1sVMClKyMe7EA8p5nxK0MBvkrvqdyCnpC0qtQ2izgji0a+AgfTHuGpCStliyR22cqjpTso0S6l2veZDBj0VMugakhBSoH5IrII5TNU/s2ijJCcVAlKiblBSJxcNTUkvDqE98FP4OJcs/p6Swx96ry5tqqFfjXO/blORbqF5wOLRWMBNll3ysph5pvLkbS9IQyMWSep6MVKlfRo2QZIaS3ucmuEDnCvirE6dj+tUpoXoKJWJhfqTKJPLDO2hgrQqlcJrTmnIJfOrQruf7hvMSWahUUvIA/YOCi8jPtlOtPRo3irI6oRBQVi0wiPq5GEzeefCtGhKp/Jh44VTrBDkk+9ylIduvkhK60EodeU7KuR7aEZGZ2sNUccPyZiXC4JTZzHCaevRtnB+evy5uEdLfcabEnq32qaBL7ihs9RIiWbj4pmtP7eXqQtENKDP4EEDF53hUUVzVg4lNMHon2X05plmGg+OoqGbVgL7u2OOnJyaXQF9c58RvBTtjvWXaMEQrOUeqSnIxMREGiJVmQep4y6khjRH27ad+f2rltl5BSVaqjSbowLVkaldxX93uzI1F4iXq+cbvY2ss8XJ0MBS/hW9TMkHXaRl/9+KUxbcpEcdb5H1sb42G+D4l8tb7z4nHK0+gLVhEelZ8nO8Xwb/31dFXjuabmI63+PC11Z+fxHxjO2x2dOcN+s9gbn5KaR/x59DmAh2OPz8SgSlG3rRATAAAAABJRU5ErkJggg==" class="inline-math" style="margin:0; vertical-align:-5px;" /> of maps which are bidirectional.</p>
+<p>Optics tell us that data is propagated forward, some intermediate state is saved, and then data is propagated backward - and nothing else<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. This is actually great, because we can then instantiate optics in a variety of settings. From propagating back gradients, to interesting things like <a href="https://arxiv.org/abs/1910.03656">propagating back utilities in game theory</a>, to using optics for <a href="https://blog.statebox.org/on-lawful-lenses-6e18a1e17bdf">lawful</a> updates - encapsulating the previously mentioned optimizers. But the general idea of optics is - just pick a base space/category/setting <span class="math inline">\(\mathcal{C}\)</span> in which you can compose processes in sequence and in parallel - and then you can form the space/category <span class="math inline">\(\mathbf{Optic}(\mathcal{C})\)</span> of maps which are bidirectional.</p>
 <p>Optics themselves can too be put in sequence and in parallel, in completely natural ways you’d expect. Below you can see an animation of sequential optic composition, summarized <a href="https://twitter.com/bgavran3/status/1366202140788731908">here</a>.</p>
 <center>
 <img src="../images/optic_comp.gif" alt="Optic composition" width="600" />
 </center>
-<p>But optics by themselves aren’t enough. To talk about neural networks - or reinforcement learning agents - we need to allow optics to read from and write to some state that’s not accessible to the outside world. This is where the <img width="41" alt="\mathbf{Para}" height="12" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFIAAAAYCAQAAADD5mIaAAABqklEQVR4nM2XW7mFIBCFqUAFK1jBClawghWoYAUrUIEKVtgVPCMwo4DgePn0DC9bhMXPxTVsIVwooYtFiVZ8Hh1gKDGI2RdFZQREV/eDp38QDUGGIQl/+IQriBzkEprW+OMoQXb0rnqdK4gS5Pque50rA1J69/GG8yD717kyIGm0yZms4FufqHaCpybo4bzXwDsNTzWY2WJjA3jFGkcaJyHRhHCzaxhwBoTKT8EkFqXIEbRtvbjubPsItsYpyN7XG1oH5Wtw5tKvSHhilYc0NmONUR+eRhZSBWXayTg4QJ3UyKTVz244TvWXTLSskYU0Ue4ewHjCjhLWxQTYbbQu20Ex8y/ptz6pkYU8PL6F3nuQ3ASwp/EAZAWzd5cTU4C8o3ELUtJpdVe5/gIkR+MGZGvtYzEM3MrSdt/RuAyJLdVOHReSq3EZctwZ/CwkV+MypPbnaBuxNR9BcjUuQ+IqrN4p4cucAk88guRqUMT/cQb7nL851v7IY95t4Ffnh51sX6e53udTNY5GEJrwtkXHzTaxmodr2Qi86WCqizVTtWONh6KBUsi0T2j8Ae0b6eAHc7WwAAAAAElFTkSuQmCC" class="inline-math" style="margin:0; vertical-align:-1px;" /> construction comes in. Given any base space/category/setting <img width="11" alt="\mathcal{C}" height="12" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAZCAQAAABwKX1bAAAA0klEQVR4nL2TURXDIAxFY6EWsICFWsACFmoBC7VQC1ioBSzUAnvN2LqmCd1+9nLaD3JJAglEPXkKlGC+S0EOUKH6tmSjA5yVFvwjvpXxbBewwuk+8uz4bMGbcD3xaMEybQRc9JoL8EGsrlbsWbmB0Yq9O66xFwSRa6zcv92zPJ//tnsvJatGXcVuxVXubi7OCoyP3+LpD3j4DbeOGmTeyLh27wN3W7TPtSc2qXmVecyMbyJO7D2M2p7Z2CrOKM+comNDbZmSPrrHsSbMd4YlvQSiB9UGZ4gkQsCwAAAAAElFTkSuQmCC" class="inline-math" style="margin:0; vertical-align:-1px;" /> in which you can put compose processes in sequence and in parallel, you can form the “parameterized” space <img width="61" alt="\mathbf{Para}(\mathcal{C})" height="17" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHsAAAAiCAQAAADVT27LAAADOUlEQVR4nNVZi7WDIAxlBVZwBVZgBVdwBVdgBVdwBVdwBVfoCr7ws3wSBG372ut557wi3OZCSAJl7Lcg2dTUn7MZ/n4cA1uLIgTrmYJHRG0LPUbBy9KjgPC/IdhGCujAwo3tx6OCd3qyCAxmlqZgmH9mEG3bHhHZp8FBFj71HOzawU5lVKzG1iXqMZctl4fslNhPSNvOeiVUIsVDgNAFVtujQ+zUbZKmpmRrLIj7fA6U4QJ8MJe4w7rHmGhHL8sejncd8vbdwM3WolMf0HZuSM98Kg6UZD/fkcPfBr2CY9aqd/sjC3IrYeFKbBJWK/vzbj6iPjYhtkh0rTUU7ad1svN5fzcWRIo0uSVd6xkmA09ykra8JLvP9nYHX/HMlRt8ioOOrQVWl04EmLSbABSadcahwdEMsjT7nU5yKEqyfQrzX6XDyQ6i7CT0Ll+G5qkj+i+mtzKOtgfB6ZzDW5UKFKanYC1YCfcvyB5d+7M4VK7Frw53qxYbqJzs1ZQaczKmjmNEkpci9zCNBV1OFoet8LHGxFWaN1lkLTzr5dPM6D6lU3fOkcreUMcvA+NJZK9JTT5BUohDhT7brNFE+N0fUnsZvqwcooNCHcecuXN3KaNUyC6UciRkQXZtiYNx5M7ZX7LxpbI7d9ibXEDCZd/hyGWry7LRUqtNNj92vT2Yjhdk13C8UjZ6hmuR3ZvkowOLd+CSk9/hWJIQ51lbbwBe4OS+p0LaamW3cKSFUCmk9YT1L5A9I3JaZbdwxPbY0yCWt7nxDbyMmanQWi97cfsxRFp8hG13OHTcjqvpzvXKa2wybLGqcqV2tZ97jpviL91zNat9xtEhDm2n7JGs61AQzZCzeXaXNpnPNIVwwcjX0xL+G5yQzYy1nM87mZythsNiywz2Y/fj8NKbcxpdpWOTd5gXP+TBnIWpx/aUzJ+y7CMyzpztnMNiYmksD4XvbuVV8TJ5IPf8JUh47l7An3H0DEtXHPb27K6zz298puajyxdgu3lny9EA+PUYEDdvG5/fxPwEVrI8qcH2rz9t3ICE9bp6VT2Wbsm/HdTvImfoiontBzBdcFXuLrR+GlPzjxPtI74Sbe7K8XjwB8x0thHywyQ1AAAAAElFTkSuQmCC" class="inline-math" style="margin:0; vertical-align:-5px;" /> of maps which have a “hidden” input. You can think of this as the private knowledge of the agent, or as the agent’s internal space. These parameterized maps have all the nice setting you’d want - including parallel and sequential composition, as shown below.</p>
+<p>But optics by themselves aren’t enough. To talk about neural networks - or reinforcement learning agents - we need to allow optics to read from and write to some state that’s not accessible to the outside world. This is where the <span class="math inline">\(\mathbf{Para}\)</span> construction comes in.
+Given any base space/category/setting <span class="math inline">\(\mathcal{C}\)</span> in which you can put compose processes in sequence and in parallel, you can form the “parameterized” space <span class="math inline">\(\mathbf{Para}(\mathcal{C})\)</span> of maps which have a “hidden” input. You can think of this as the private knowledge of the agent, or as the agent’s internal space.
+These parameterized maps have all the nice setting you’d want - including parallel and sequential composition, as shown below.</p>
 <center>
 <img src="../images/para_comp.gif" alt="Composition of parameterized maps" width="600" />
 </center>
-<p>This is how we come to the main idea of our paper. <img width="41" alt="\mathbf{Para}" height="12" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFIAAAAYCAQAAADD5mIaAAABqklEQVR4nM2XW7mFIBCFqUAFK1jBClawghWoYAUrUIEKVtgVPCMwo4DgePn0DC9bhMXPxTVsIVwooYtFiVZ8Hh1gKDGI2RdFZQREV/eDp38QDUGGIQl/+IQriBzkEprW+OMoQXb0rnqdK4gS5Pque50rA1J69/GG8yD717kyIGm0yZms4FufqHaCpybo4bzXwDsNTzWY2WJjA3jFGkcaJyHRhHCzaxhwBoTKT8EkFqXIEbRtvbjubPsItsYpyN7XG1oH5Wtw5tKvSHhilYc0NmONUR+eRhZSBWXayTg4QJ3UyKTVz244TvWXTLSskYU0Ue4ewHjCjhLWxQTYbbQu20Ex8y/ptz6pkYU8PL6F3nuQ3ASwp/EAZAWzd5cTU4C8o3ELUtJpdVe5/gIkR+MGZGvtYzEM3MrSdt/RuAyJLdVOHReSq3EZctwZ/CwkV+MypPbnaBuxNR9BcjUuQ+IqrN4p4cucAk88guRqUMT/cQb7nL851v7IY95t4Ffnh51sX6e53udTNY5GEJrwtkXHzTaxmodr2Qi86WCqizVTtWONh6KBUsi0T2j8Ae0b6eAHc7WwAAAAAElFTkSuQmCC" class="inline-math" style="margin:0; vertical-align:-1px;" /> by itself is not that useful, but when we apply it to <img width="68" alt="\mathbf{Optic}(\mathcal{C})" height="17" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIkAAAAiCAQAAADB9jJvAAAECUlEQVR4nN1Z7ZWsIAylBVuwBVugBVuwhWmBFmyBFmzBFmzBFmZBCZ83ODizb86+69n9wUAglyQkIMT/Aynmpv6d0OavEb2ZRoqhddhXMIn1QsFBjEKZb4halldJ6cXDTPCMvtWI6t9Z8SXUMY+6OXoQW0W53sjdIm3CLJbIS3TG/OywzdDSO4GTEzi3G1ohXcL2wS93vCV1Y8d1B9na/J/M37nRS/S7vtqGgVX+JGp/043s8hCkp+RxS+rC/DIYEpbIvnunnUha8DY5AfsxRMNfP0EKR0nnZt5vuCevlNVnLvo+jb3EmGvOs7plYfegZde89goLQ4ld7Gy+O3RzKllCcuuZjvXn/XKSPFQRfNp71HHu0WfRM85m40u5uStUf+Ucb3cK855FQZCzoyvoX6DkYSQiZ5vB1klgIxYKyxh9gKuB+jCGVsX8gvx2LFBJCTdOM2emxJZGToEmiBfwTAKwjfWLa7VWRMfcaiYP1pbmBYv74uzgbNmBjY5mrj0amy69y86PeJ0t7g2PlMVPWgP1ooCmfMvzWPpsVJBFHjMcCm9VSujXmJLOSZ+PHFq6bYsXL6Hqp4O3hOoVmcLeREls/srTFPyxcyquoB+GLCjpnMUFu6DZwzwPGPvUpbUjvQo836Yk9VKKTaroh1FSogtH1sVMClKyMe7EA8p5nxK0MBvkrvqdyCnpC0qtQ2izgji0a+AgfTHuGpCStliyR22cqjpTso0S6l2veZDBj0VMugakhBSoH5IrII5TNU/s2ijJCcVAlKiblBSJxcNTUkvDqE98FP4OJcs/p6Swx96ry5tqqFfjXO/blORbqF5wOLRWMBNll3ysph5pvLkbS9IQyMWSep6MVKlfRo2QZIaS3ucmuEDnCvirE6dj+tUpoXoKJWJhfqTKJPLDO2hgrQqlcJrTmnIJfOrQruf7hvMSWahUUvIA/YOCi8jPtlOtPRo3irI6oRBQVi0wiPq5GEzeefCtGhKp/Jh44VTrBDkk+9ylIduvkhK60EodeU7KuR7aEZGZ2sNUccPyZiXC4JTZzHCaevRtnB+evy5uEdLfcabEnq32qaBL7ihs9RIiWbj4pmtP7eXqQtENKDP4EEDF53hUUVzVg4lNMHon2X05plmGg+OoqGbVgL7u2OOnJyaXQF9c58RvBTtjvWXaMEQrOUeqSnIxMREGiJVmQep4y6khjRH27ad+f2rltl5BSVaqjSbowLVkaldxX93uzI1F4iXq+cbvY2ss8XJ0MBS/hW9TMkHXaRl/9+KUxbcpEcdb5H1sb42G+D4l8tb7z4nHK0+gLVhEelZ8nO8Xwb/31dFXjuabmI63+PC11Z+fxHxjO2x2dOcN+s9gbn5KaR/x59DmAh2OPz8SgSlG3rRATAAAAABJRU5ErkJggg==" class="inline-math" style="margin:0; vertical-align:-5px;" />, we get interesting things out. This gives us the the important notion of <img width="119" alt="\mathbf{Para(Optic(\mathcal{C}))}" height="17" src="data:image/png;base64,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" class="inline-math" style="margin:0; vertical-align:-5px;" />: the category of parameterised optics. It’s a pretty complex beast, but maps inside are in some sense the “true shape” of neural networks. A parameterised optic is here a thing with 6 ports in total, organized in (input,output) pairs on its left, right and “internal” (drawn on the top) side. It has a pretty complex flow of information, being bidirectional, but “in one additional dimension”.</p>
+<p>This is how we come to the main idea of our paper. <span class="math inline">\(\mathbf{Para}\)</span> by itself is not that useful, but when we apply it to <span class="math inline">\(\mathbf{Optic}(\mathcal{C})\)</span>, we get interesting things out.
+This gives us the the important notion of <span class="math inline">\(\mathbf{Para(Optic(\mathcal{C}))}\)</span>: the category of parameterised optics. It’s a pretty complex beast, but maps inside are in some sense the “true shape” of neural networks. A parameterised optic is here a thing with 6 ports in total, organized in (input,output) pairs on its left, right and “internal” (drawn on the top) side. It has a pretty complex flow of information, being bidirectional, but “in one additional dimension”.</p>
 <p>The image below shows this information flow, which is also explained in more detail <a href="https://twitter.com/bgavran3/status/1404438688831004673">here</a>, and <a href="https://youtu.be/tKM8JdXJEII?t=1470">here</a>.</p>
 <center>
 <img src="../images/para_optic.gif" alt="A parameterized optic" width="600" />
@@ -83,10 +142,10 @@
 <p>There are all these various things you can do with them - and this is where the power of this framework comes in. But I’ll describe these things in future posts.</p>
 <p>This short blog post was a fast, bumpy tour of a lot of the things that we’ve been working on here at <a href="http://msp.cis.strath.ac.uk/">MSP</a>. For a slower and more nuanced description check out our paper, or some of the many interesting related papers I collect in this <a href="https://github.com/bgavran/Category_Theory_Machine_Learning">github repository</a>.</p>
 <p>There is so much more to do in this setting. The deep learning community is exploring a number of exciting neural network paradigms and ideas. From Generative Adversarial Networks and Transformers, over Graph Neural Networks to very strange ideas such as World Models and Differentiable Neural Computers. Understanding their categorical essence is part of our future work and I urge anybody with overlapping interests to get in touch.</p>
-<section class="footnotes">
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>While in this blog post I focus on <em>multiplicative</em> optics (which perform internal computation <em>and</em> interact with the environment), there are many others, allowing for description of complex interaction protocols. Prisms are an example of <em>additive optics</em> (which perform internal computation <em>or</em> interact with the environment) allowing for conditional control flow.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p>While in this blog post I focus on <em>multiplicative</em> optics (which perform internal computation <em>and</em> interact with the environment), there are many others, allowing for description of complex interaction protocols. Prisms are an example of <em>additive optics</em> (which perform internal computation <em>or</em> interact with the environment) allowing for conditional control flow.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -99,11 +158,10 @@ commentBox('5769281040023552-proj');
 
         <div id="footer">
           <div class="inside">
+            Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0</a>
             Site proudly generated by
             <a href="http://jaspervdj.be/hakyll">Hakyll</a>.
-            This theme was designed by <a href="http://twitter.com/katychuang">Dr. Kat</a> and showcased in the <a href="http://katychuang.com/hakyll-cssgarden/gallery/">Hakyll-CSSGarden</a>
-
-
+            The theme originates in the <a href="http://katychuang.com/hakyll-cssgarden/gallery/">Hakyll-CSSGarden</a>.
           </div>
         </div>
 

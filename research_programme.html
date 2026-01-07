@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWZE1HYS87"></script>
+        <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+
+         gtag('config', 'G-PWZE1HYS87');
+        </script>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="author" content="Bruno Gavranovic" />
+        <meta name="viewport" content="width=device-width" />
+        <meta http-equiv="Cache-Control" content="max-age=86400, must-revalidate" />
+        <title>Research programme</title>
+        <script src="./css/jquery.js"></script>
+        <script src="./css/selectfile.js"></script>
+        <link rel="stylesheet" type="text/css" title="hakyll_theme" href="./css/theprofessional.css" />
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
+        <!-- MathJax font size adjustment -->
+        <style>
+            mjx-container {
+                font-size: 80% !important;
+            }
+
+            /* Scale TikZ diagrams uniformly */
+            .page svg {
+                transform: scale(1.2) !important;
+                transform-origin: center !important;
+            }
+
+            /* Improve code blocks */
+            pre, code {
+                background-color: #f8f9fa;
+                border: 1px solid #e1e4e8;
+                border-radius: 3px;
+                font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+                font-size: 0.9em;
+            }
+
+            pre {
+                padding: 1em;
+                overflow-x: auto;
+            }
+
+            code {
+                padding: 0.2em 0.4em;
+            }
+
+            pre code {
+                background: none;
+                border: none;
+                padding: 0;
+            }
+        </style>
+
+        <!-- MathJax for regular math -->
+        <script>
+            MathJax = {
+                tex: {
+                    macros: {
+                        coloneqq: '\\mathrel{\\vcenter{:}}=',
+                        enskip: '\\hspace{0.5em}'
+                    }
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+        <!-- TikZJax for TikZ diagrams -->
+        <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+        <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    </head>
+    <body>
+        <div class="highbar">&nbsp;</div>
+        <div class="container-gallery">
+        <div id="content" class="inside">
+
+        <div id="header">
+          <div class="box">
+            <div id="logo" class="name">
+                <h2><pageTitle><a href="./">Bruno Gavranović</a></pageTitle></h2>
+            </div>
+            <div id="navigation" class="pageslinks">
+              <nav class="menuNav">
+                <div class="menuItems">
+                <a href="./" class="header_pages/research_programme.md">Home</a>
+                <a href="./archive.html" class="header_pages/research_programme.md">Posts</a>
+                <a href="./papers.html" class="header_pages/research_programme.md">Papers</a>
+                <a href="./research_programme.html" class="active">Research Programme</a>
+                <a href="./about.html" class="header_pages/research_programme.md">About</a>
+		<!-- <a href="/contact.html" class="header_pages/research_programme.md">Contact</a> -->
+                </div>
+              </nav>
+            </div>
+        </div>
+        </div>
+            <h3 id="research-programme">Research programme</h3>
+<p>Software testing can only prove the presence of bugs, not their absence.</p>
+<p>This asymmetry limits how far we can scale.
+As software grows, each new component introduces failure modes that become impractical to detect by testing, making it difficult to ensure our intent is met.
+This is why software engineering teams have come to rely on a complicated hierarchy of trust, and best practices. But these only go so far.</p>
+<p>The things we build are made out of clay.
+Clay houses need constant maintenance, and can only rise so high before collapsing under their weight.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>But testing is not the only way.</p>
+<p>Programming languages like Idris and Lean let you <em>express your intent using code</em>, then verify intent is satisfied by <em>compiling</em>. Let me show you what I mean.</p>
+<p>Say you want to sort a list.
+In most languages, you’d write a function with a type like:</p>
+<center>
+<code>sort : List Int -&gt; List Int</code>.
+</center>
+<p>The requirement that the output is <em>sorted</em> is left out. The compiler will reject your code if you return a string instead of a list, but if you return an unsorted list, it stays silent.
+You have encoded your intent only partially.
+You have to test because you know something you never told the compiler.</p>
+<p>This is how most programmers have been taught to program.
+But type theory has advanced enough to change this.</p>
+<p>In Idris, you can write</p>
+<center>
+<code>sort : (xs : List Int) -&gt; SortedList xs</code>.
+</center>
+<p>Here <code>SortedList xs</code> includes not just a list, but <em>a proof</em> that the list is sorted.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+To implement this function you must have it return both the list and the proof.
+The bug of returning an unsorted list is rendered impossible: the compiler will simply not let you run that program.
+If you’ve written a function that satisfies your spec, you don’t need to test it, or have any uncertainty about what it does. If the spec matches your intent, there can be no bugs.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>Languages like Idris and Lean make us rethink programming.
+Instead of writing code and then manually verifying it, you can <em>encode your intent</em> first, then implement it.
+The burden shifts from “does my code have bugs?” to “does my specification capture what I actually want?”.
+If it does, verification becomes mechanical: if it compiles, it’s correct.
+No testing needed.</p>
+<p>We’re no longer building with clay.
+We’re building with bricks and structural engineering.
+The reliability of our materials, and the precision of our theory lets us build things people a few centuries ago could not have dreamt of: space stations and rockets.
+Dependent types, through same reliability and precision, do the same for software.</p>
+<hr />
+<p>So, what’s the catch?</p>
+<p>There are two. First, specifying intent is hard. We often <a href="https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD667.html">don’t know what we want</a>.
+Writing code, like writing prose, reveals what we <em>actually</em> meant to say.</p>
+<p>Second, specifications have a surprising amount of <a href="http://johnsalvatier.org/blog/2017/reality-has-a-surprising-amount-of-detail">detail</a>.
+If you’re building a database, under tight deadlines you seldom have the luxury to internalise the mathematics needed to formally state <a href="https://arxiv.org/abs/1602.03501">invariants of databases with concrete data</a>, write it up in Lean, and translate shifting business requirements into such a system. This takes incredible effort, and is extremely error prone. No human can do it fast enough, and even if you have a PhD in this topic, the basics take months.</p>
+<p>It is much easier to just use MySQL and make your boss happy.</p>
+<center>
+<p><img src="../images/database_scary.png" alt="Example of mathematics from the aforementioned paper" width="600" /></p>
+Mathematics required to state some database invariants. From <a href="https://arxiv.org/abs/1602.03501">Algebraic Databases</a>.
+</center>
+<p>This is why proofs have taken a backseat in mainstream programming. Languages optimised for human convenience - such as Python or Javascript - have taken center stage, while languages optimised for correctness remain niche.</p>
+<p>But here’s the thing: more and more code is written by AI. Are we sure AI will keep writing code in languages optimised for <em>human</em> convenience?</p>
+<hr />
+<p>Just like new paradigms overturned the once dominant Cobol, the mechanics of scale and proofs will eventually overturn languages made for human convenience.
+The difference is that most of that code won’t be written by humans.</p>
+<p>We’re already seeing it.
+Transformer-based models are helping mathematicians <a href="https://mathstodon.xyz/@tao/115591487350860999">solve open research problems</a>.
+It’s only a matter of time before people realise that the same approaches used for theorem proving are applicable to general programming.
+That’s when we’ll see the next AI wave.</p>
+<p>But there are obstacles on the way. LLM-based models excel in data-rich domains, but correctness-first languages are not one of them.</p>
+<p>By design, these languages are concise: a few hundred lines of specification can define possibly hundreds of thousands of lines of implementation.
+This makes them inherently data scarce, and starves LLMs of the training data they require.
+Is the <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">Bitter Lesson</a> actually <a href="https://theoryandpractice.org/2025/09/The%20Bittersweet%20Lesson/">bittersweet</a>?</p>
+<center>
+<p><img src="../images/data_scarcity.png" alt="Data scarcity" width="600" /></p>
+LLM-based models excel only in data-rich domains. Taken from the paper <a href="https://storage.googleapis.com/deepmind-media/Era-of-Experience%20/The%20Era%20of%20Experience%20Paper.pdf">The Era of Experience</a>.
+</center>
+<p>It’s clear that puzzle pieces are still missing. And data scarcity is only part of the problem. We also have:</p>
+<ul>
+<li><strong>Blindness to structure</strong>: LLMs treat code as an extension of natural language, lacking mechanisms to leverage its structure. Any structure that our code has – usually represented as an inductive, dependently-typed abstract syntax tree – has to be flattened into a linear representation before the LLM can consume it.
+And when producing outputs, they are always produced in a linear order, strictly autoregressively (left to right), without any ability to backtrack or change previous outputs: models are append only.</li>
+<li><strong>Compiler integration as an afterthought</strong>: When LLMs generate code in dependently-typed languages, they do it vacuum sealed from the programming environment. They can suggest nonexistent imports, and call functions that do not exist. They can generate a hundred lines, only to be told by the compiler that there is an error on line one. That’s not how Idris and Lean programmers write coe. They generate code step by step in a tight interaction loop with a compiler. The code that they wrote is elaborated, its full terms are exposed back to the programmer, who now continues to write code conditioned, and constrained by the type and structural information that they’d otherwise have to infer manually.
+Types aren’t used just to filter out invalid outputs, they’re used <a href="https://www.youtube.com/watch?v=v2yXrOkzt5w">to help programmers reason</a>. But output of existing LLMs is not conditioned on the existing proof state, nor constrained by it.</li>
+<li><strong>Lack of infrastructure</strong>: Novel architectures, for instance those that produce correct-by-construction dependent types, are difficult to prototype when the tooling doesn’t support structure. Type-driven development and the level of generic programming possible in dependently-typed languages simply isn’t possible in Python. Building genuinely new architectures requires new tools, and those tools, such as automatic differentiation and tensor processing frameworks are missing from dependently-typed languages. Most attempts to such tools only replicate what already is, without reimagining what could be.</li>
+</ul>
+<p>These problems aren’t blocking. But solving them might unlock orders of magnitude more progress than pure scaling.</p>
+<hr />
+<p>My research is centered on making that happen.
+I work on three fronts:</p>
+<ol type="1">
+<li><strong>New architectures</strong>: Understanding old, and designing new neural networks that natively consume and produce structured data</li>
+<li><strong>Mathematical Foundations</strong>: Building the mathematics necessary to state precisely what it means to generalise, especially on data structures recursive in nature</li>
+<li><strong>Infrastructure</strong>: Building the stack required to train such networks in dependently-typed languages, including automatic differentiation and tight elaborator integration</li>
+</ol>
+<p>In all of these, I use category theory, the mathematics of structure and composition, as a central glue.</p>
+<hr />
+<p>Why category theory?</p>
+<p>Because the organisational principles needed to build better AI systems turn out to be the same principles needed to build better programming languages, and to do science in general.</p>
+<p>Any system that generalises well has discovered compositional structure in its domain. To generalise is to discover rules that apply parametrically, regardless of the size or shape of the input.
+And more consistent and modular you make your rules, the more it looks like you’re following categorical principles.</p>
+<p>I suspect any sufficiently capable reasoning system has, whether by design or discovery, converged on these principles.</p>
+<p>This raises a question: what might a formal theory of reasoning look like?</p>
+<hr />
+<p>Consider alchemy.</p>
+<p>For centuries, alchemists mixed compounds through trial and error, chasing the elixir of life and the philosopher’s stone.
+But alchemy wasn’t bad, it was the best they knew back then.
+Alchemists made genuine discoveries.
+They discovered phosphorus, gunpowder<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, and they developed lab equipment.
+But they couldn’t synthesise penicillin.
+They couldn’t build chemical manufacturing plants.
+They couldn’t cure diseases at scale.</p>
+<p>Something else was required. Over time, we discovered the atom. We built the periodic table. We understood the idea of molecules, bonds, reactions, and thermodynamics.</p>
+<p>The result was chemistry, which is a field so different we gave it a new name.
+Chemistry is reliable, controllable, and scalable in ways alchemy never could be.
+We <em>predicted new elements</em> before we ran the experiments.
+We now have petrochemical refineries, automated synthesis with minimal human oversight, and we can capture carbon from the atmosphere.
+These are incredible advancements, and they weren’t created by scaling up alchemy.
+They required discovering the foundational principles first, and the development of a new science, one alchemists could not imagine.</p>
+<center>
+<img src="../images/alchemy_to_chemistry.png" alt="Chemistry today is unimaginable to alchemists." width="750" />
+</center>
+<p>Deep learning today feels like alchemy.
+We’re making remarkable strides, and LLMs are impressive feats of engineering.
+But we have very little understanding of their internals.
+Nobody made predictions of phenomena such as double descent, or lottery ticket hypothesis – phenomena which seemingly explain a part of their behaviour.
+We’re collecting an abundance of experimental data, but in our pursuit we have not been able to glue it all into a cohesive theory.</p>
+<hr />
+<p>There is something self-referential about this pursuit.</p>
+<p>To find a concise way to express how intelligent systems find good models of the world, it may be necessary to first reason better ourselves: to structure our own thoughts more clearly.
+If we’re poor learners ourselves, we won’t be able to describe learning well.</p>
+<p>Category theory is a tool for exactly this: organisational principles at a level high enough to enable restructuring of understanding, yet precise enough to avoid getting lost in meaning.</p>
+<p>The notion of intelligence has often carried a mythical quality, resisting precise formalisation alongside related concepts like consciousness, <a href="https://julesh.com/2019/11/27/categorical-cybernetics-a-manifesto/">cybernetics</a>, <a href="https://golem.ph.utexas.edu/category/2019/06/behavioral_mereology.html">autopoiesis</a>, and the notion of life itself.
+This was largely because the tools for formal specification were inadequate.
+But with the advent of <a href="https://www.youtube.com/watch?v=r_giN0VU7qo">21st century mathematics</a>, I believe we have the right abstractions to ask the right questions.</p>
+<p>Could category theory be the formal theory of reasoning we’re after?</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>I am a fan of the following quote from Bartosz Milewski’s book <a href="https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/">Category Theory for Programmers</a>: “<em>There is an unfinished gothic cathedral in Beauvais, France, that stands witness to this deeply human struggle with limitations. It was intended to beat all previous records of height and lightness, but it suffered a series of collapses. Ad hoc measures like iron rods and wooden supports keep it from disintegrating, but obviously a lot of things went wrong. From a modern perspective, it’s a miracle that so many gothic structures had been successfully completed without the help of modern material science, computer modelling, finite element analysis, and general math and physics. I hope future generations will be as admiring of the programming skills we’ve been displaying in building complex operating systems, web servers, and the internet infrastructure. And, frankly, they should, because we’ve done all this based on very flimsy theoretical foundations. We have to fix those foundations if we want to move forward.</em>”<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>To sort a list <code>xs</code> we need to provide a list <code>ys</code>, together with proofs that the elements of <code>ys</code> are in ascending order, and that <code>ys</code> is a permutation of <code>xs</code>. For details see <a href="https://gist.github.com/bgavran/e6ef899a86223d32e25adde4ce884a64">this gist</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>You might ask: “What if the function sorts a list, but is not efficiently implemented?” In that case, your intent isn’t to sort a list, it’s to sort a list <em>efficiently</em>, and your specification needs to be refined. That is, the implementation matches the specification, but the specification does not match your intent.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Did you know that gunpowder was invented as a byproduct of trying to invent the elixir of life?<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+        <div id="footer">
+          <div class="inside">
+            Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0</a>
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>.
+            The theme originates in the <a href="http://katychuang.com/hakyll-cssgarden/gallery/">Hakyll-CSSGarden</a>.
+          </div>
+        </div>
+
+          </div>
+        </div>
+    </body>
+</html>

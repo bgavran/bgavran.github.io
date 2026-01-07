@@ -21,6 +21,60 @@
         <script src="./css/selectfile.js"></script>
         <link rel="stylesheet" type="text/css" title="hakyll_theme" href="./css/theprofessional.css" />
         <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
+        <!-- MathJax font size adjustment -->
+        <style>
+            mjx-container {
+                font-size: 80% !important;
+            }
+
+            /* Scale TikZ diagrams uniformly */
+            .page svg {
+                transform: scale(1.2) !important;
+                transform-origin: center !important;
+            }
+
+            /* Improve code blocks */
+            pre, code {
+                background-color: #f8f9fa;
+                border: 1px solid #e1e4e8;
+                border-radius: 3px;
+                font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+                font-size: 0.9em;
+            }
+
+            pre {
+                padding: 1em;
+                overflow-x: auto;
+            }
+
+            code {
+                padding: 0.2em 0.4em;
+            }
+
+            pre code {
+                background: none;
+                border: none;
+                padding: 0;
+            }
+        </style>
+
+        <!-- MathJax for regular math -->
+        <script>
+            MathJax = {
+                tex: {
+                    macros: {
+                        coloneqq: '\\mathrel{\\vcenter{:}}=',
+                        enskip: '\\hspace{0.5em}'
+                    }
+                }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+        <!-- TikZJax for TikZ diagrams -->
+        <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+        <script src="https://tikzjax.com/v1/tikzjax.js"></script>
     </head>
     <body>
         <div class="highbar">&nbsp;</div>
@@ -35,32 +89,49 @@
             <div id="navigation" class="pageslinks">
               <nav class="menuNav">
                 <div class="menuItems">
-                <a href="./" class="about.md">Home</a>
-                <a href="./archive.html" class="about.md">Posts</a>
-                <a href="./papers.html" class="about.md">Papers</a>
-                <a href="./research_philosophy.html" class="about.md">Research Philosophy</a>
+                <a href="./" class="header_pages/about.md">Home</a>
+                <a href="./archive.html" class="header_pages/about.md">Posts</a>
+                <a href="./papers.html" class="header_pages/about.md">Papers</a>
+                <a href="./research_programme.html" class="header_pages/about.md">Research Programme</a>
                 <a href="./about.html" class="active">About</a>
-		<!-- <a href="/contact.html" class="about.md">Contact</a> -->
+		<!-- <a href="/contact.html" class="header_pages/about.md">Contact</a> -->
                 </div>
               </nav>
             </div>
         </div>
         </div>
-            <h3 id="about">About</h3>
-<p>I’m building neural networks that process structured data based on the <a href="https://categoricaldeeplearning.com/">Categorical Deep Learning</a> programme.</p>
-<p>I defended my PhD thesis <a href="https://www.brunogavranovic.com/posts/2024-03-13-my-thesis-is-out.html">“Fundamental Components of Deep Learning: A category-theoretic approach”</a> in the <a href="http://msp.cis.strath.ac.uk/index.html">Mathematically Structured Programming Group</a> at the <a href="https://www.strath.ac.uk">University of Strathclyde</a> in Glasgow. My advisor was <a href="https://personal.cis.strath.ac.uk/neil.ghani/">Neil Ghani</a>. During my PhD, I have written a number of <a href="./papers.html">papers</a> exploring the intersection of category theory, machine learning, game theory, and cybernetics.</p>
-<p>I previously studied computer science at the <a href="https://www.fer.unizg.hr/en">Faculty of Electrical Engineering and Computing (FER)</a> in Zagreb, Croatia. I was a part of <a href="https://takelab.fer.hr/">TakeLab</a>. I’ve done quite a bit of programming work there, reimplementing a number of neural network architectures such as <a href="https://github.com/bgavran/DNC">Differentiable Neural Computer</a>, <a href="https://github.com/bgavran/Improved_WGAN">Generative Adversarial Networks</a>, <a href="https://github.com/bgavran/synthetic_gradients">Synthetic Gradients</a> and made even my <a href="https://github.com/bgavran/autodiff">own automatic differentiation framework</a>. Attempting to make my thinking more abstract and precise, I discovered category theory, which greatly shaped how I think about research. My studies in Zagreb culminated with me writing my <a href="https://arxiv.org/abs/1907.08292">master thesis</a> on the topic of formalization of Cycle-Consistent Generative Adversarial Neural Networks (<a href="https://arxiv.org/abs/1703.10593">CycleGAN</a>) in the language of category theory. This thesis was turned into a paper <a href="http://eptcs.web.cse.unsw.edu.au/paper.cgi?ACT2019.15">Learning Functors using Gradient Descent</a> and accepted at the <a href="http://www.cs.ox.ac.uk/ACT2019/">ACT conference</a>.</p>
+            <p>I am originally from Croatia, where I’ve got my MSc degree in computer science, from the <a href="https://www.fer.unizg.hr/en">Faculty of Electrical Engineering and Computing (FER)</a> in Zagreb, where I was a part of <a href="https://takelab.fer.hr/">TakeLab</a>.</p>
+<p>During that time I became interested in understanding how neural networks really work, and how one might implement them based on simple and elegant principles.
+I took the initiative to reimplement a number of neural networks from scratch: <a href="https://github.com/bgavran/DNC">Differentiable Neural Computers</a>, <a href="https://github.com/bgavran/Improved_WGAN">Generative Adversarial Networks</a> and <a href="https://github.com/bgavran/synthetic_gradients">Synthetic Gradients</a>.
+I also implemented <a href="https://github.com/bgavran/autodiff">own automatic differentiation framework</a>.</p>
+<p>In my penultimate year I took a Haskell course, opening my eyes to the fact that programming need not be different than mathematics.
+This coincided with the release of the paper <a href="https://arxiv.org/abs/1711.10455">Backprop as Functor</a>, which made me aware of the field of category theory.</p>
+<p>I was hooked, and wanted to learn more.
+I attended the 0th conference on <a href="https://www.appliedcategorytheory.org/workshops/">Applied Category Theory</a> and met the wonderful community behind it.
+They were extremely welcoming and supportive in my journey to learn.
+There I’ve met <a href="https://personal.cis.strath.ac.uk/neil.ghani/">Neil Ghani</a> who invited me to do a PhD in Glasgow under his guidance, to learn about category theory, and apply the ideas behind it to deep learning.</p>
+<p>During my PhD, I have written a number of <a href="./papers.html">papers</a> exploring the intersection of category theory, machine learning, game theory, and cybernetics, and had a wonderful time in the <a href="http://msp.cis.strath.ac.uk/index.html">Mathematically Structured Programming Group</a> at the <a href="https://www.strath.ac.uk">University of Strathclyde</a> in Glasgow.
+I’ve learned a great deal about what mathematics and programming are from people working on cutting edge ideas.</p>
+<p>On 21st of September 2023 I defended my PhD thesis <a href="https://www.brunogavranovic.com/posts/2024-03-13-my-thesis-is-out.html">“Fundamental Components of Deep Learning: A category-theoretic approach”</a>, and passed my viva with minor corrections.</p>
+<p>In the following few months, I ended up working for the company Symbolica AI, where the research on I spearheaded defining the field of <a href="https://categoricaldeeplearning.com/">Categorical Deep Learning</a> was accepted into the <a href="https://icml.cc/">ICML</a> conference, and was a key signal for the company’s $31m Series A funding round.
+Shortly after, I was <a href="https://www.linkedin.com/feed/update/urn:li:activity:7273698639749804032/">fired</a> without warning, and so were all the key researchers involved in this work.</p>
+<p>Since, I’ve been involved with industry and research on the research programme of <a href="../research_programme.md">provably correct code generation</a>:</p>
+<ul>
+<li>I founded the company <a href="www.coend.ai">Coend</a> building neural networks that generate provably correct code</li>
+<li>I’m employed by <a href="https://glaive-research.org/">GLAIVE</a> on the research grant building <a href="https://www.renaissancephilanthropy.org/a-structured-representation-of-tactics-for-machine-assisted-theorem-proving">intermediate language for tactics</a></li>
+<li>I’m a research advisor to Google DeepMind, where I am working with the team led by <a href="https://petar-v.com/">Petar Veličković</a></li>
+<li>I’m building <a href="https://github.com/bgavran/TensorType">TensorType</a>, a type-safe tensor processsing framework in Idris</li>
+</ul>
 <p>My CV is <a href="./assets/Bruno_Gavranovic_CV.pdf">here</a>.</p>
 <h3 id="contact">Contact</h3>
-<p><a target="_blank" href="https://mailhide.io/e/8D20P">Click to reveal email</a>. You can also find me on <a href="https://twitter.com/bgavran3">Twitter</a> and <a href="https://github.com/bgavran">Github</a>.</p>
+<p><a target="_blank" href="https://mailhide.io/e/8D20P">Click to reveal email</a>. You can also find me on <a href="https://mathstodon.xyz/@bgavran">Mathstodon</a>, <a href="https://bsky.app/profile/bgavran.bsky.social">BlueSky</a> and <a href="https://github.com/bgavran">Github</a>.</p>
 <p>You can subscribe to my <a href="./rss.xml">RSS</a> feed.</p>
         <div id="footer">
           <div class="inside">
+            Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0</a>
             Site proudly generated by
             <a href="http://jaspervdj.be/hakyll">Hakyll</a>.
-            This theme was designed by <a href="http://twitter.com/katychuang">Dr. Kat</a> and showcased in the <a href="http://katychuang.com/hakyll-cssgarden/gallery/">Hakyll-CSSGarden</a>
-
-
+            The theme originates in the <a href="http://katychuang.com/hakyll-cssgarden/gallery/">Hakyll-CSSGarden</a>.
           </div>
         </div>
 
