@@ -16,7 +16,7 @@
         <meta name="author" content="Bruno Gavranovic" />
         <meta name="viewport" content="width=device-width" />
         <meta http-equiv="Cache-Control" content="max-age=86400, must-revalidate" />
-        <title>Research programme</title>
+        <title>From Alchemy to Chemistry</title>
         <script src="./css/jquery.js"></script>
         <script src="./css/selectfile.js"></script>
         <link rel="stylesheet" type="text/css" title="hakyll_theme" href="./css/theprofessional.css" />
@@ -100,11 +100,11 @@
             </div>
         </div>
         </div>
-            <h3 id="research-programme">Research programme</h3>
+            <h3 id="from-alchemy-to-chemistry">From Alchemy to Chemistry</h3>
 <p>Software testing can only prove the presence of bugs, not their absence.</p>
 <p>This asymmetry limits how far we can scale.
 As software grows, each new component introduces failure modes that become impractical to detect by testing, making it difficult to ensure our intent is met.
-This is why software engineering teams have come to rely on a complicated hierarchy of trust, and best practices. But these only go so far.</p>
+This is why software engineering teams have come to rely on a complicated hierarchy of trust and best practices. But these only go so far.</p>
 <p>The things we build are made out of clay.
 Clay houses need constant maintenance, and can only rise so high before collapsing under their weight.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>But testing is not the only way.</p>
@@ -135,7 +135,7 @@ No testing needed.</p>
 <p>We’re no longer building with clay.
 We’re building with bricks and structural engineering.
 The reliability of our materials, and the precision of our theory lets us build things people a few centuries ago could not have dreamt of: space stations and rockets.
-Dependent types, through same reliability and precision, do the same for software.</p>
+Dependent types, through the same reliability and precision, do the same for software.</p>
 <hr />
 <p>So, what’s the catch?</p>
 <p>There are two. First, specifying intent is hard. We often <a href="https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD667.html">don’t know what we want</a>.
@@ -156,7 +156,7 @@ The difference is that most of that code won’t be written by humans.</p>
 Transformer-based models are helping mathematicians <a href="https://mathstodon.xyz/@tao/115591487350860999">solve open research problems</a>.
 It’s only a matter of time before people realise that the same approaches used for theorem proving are applicable to general programming.
 That’s when we’ll see the next AI wave.</p>
-<p>But there are obstacles on the way. LLM-based models excel in data-rich domains, but correctness-first languages are not one of them.</p>
+<p>But there are obstacles in the way. LLM-based models excel in data-rich domains, but correctness-first languages are not one of them.</p>
 <p>By design, these languages are concise: a few hundred lines of specification can define possibly hundreds of thousands of lines of implementation.
 This makes them inherently data scarce, and starves LLMs of the training data they require.
 Is the <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">Bitter Lesson</a> actually <a href="https://theoryandpractice.org/2025/09/The%20Bittersweet%20Lesson/">bittersweet</a>?</p>
@@ -168,9 +168,9 @@ LLM-based models excel only in data-rich domains. Taken from the paper <a href="
 <ul>
 <li><strong>Blindness to structure</strong>: LLMs treat code as an extension of natural language, lacking mechanisms to leverage its structure. Any structure that our code has – usually represented as an inductive, dependently-typed abstract syntax tree – has to be flattened into a linear representation before the LLM can consume it.
 And when producing outputs, they are always produced in a linear order, strictly autoregressively (left to right), without any ability to backtrack or change previous outputs: models are append only.</li>
-<li><strong>Compiler integration as an afterthought</strong>: When LLMs generate code in dependently-typed languages, they do it vacuum sealed from the programming environment. They can suggest nonexistent imports, and call functions that do not exist. They can generate a hundred lines, only to be told by the compiler that there is an error on line one. That’s not how Idris and Lean programmers write coe. They generate code step by step in a tight interaction loop with a compiler. The code that they wrote is elaborated, its full terms are exposed back to the programmer, who now continues to write code conditioned, and constrained by the type and structural information that they’d otherwise have to infer manually.
+<li><strong>Compiler integration as an afterthought</strong>: When LLMs generate code in dependently-typed languages, they do it vacuum sealed from the programming environment. They can suggest nonexistent imports, and call functions that do not exist. They can generate a hundred lines, only to be told by the compiler that there is an error on line one. That’s not how Idris and Lean programmers write code. They generate code step by step in a tight interaction loop with a compiler. The code that they wrote is elaborated, its full terms are exposed back to the programmer, who now continues to write code conditioned, and constrained by the type and structural information that they’d otherwise have to infer manually.
 Types aren’t used just to filter out invalid outputs, they’re used <a href="https://www.youtube.com/watch?v=v2yXrOkzt5w">to help programmers reason</a>. But output of existing LLMs is not conditioned on the existing proof state, nor constrained by it.</li>
-<li><strong>Lack of infrastructure</strong>: Novel architectures, for instance those that produce correct-by-construction dependent types, are difficult to prototype when the tooling doesn’t support structure. Type-driven development and the level of generic programming possible in dependently-typed languages simply isn’t possible in Python. Building genuinely new architectures requires new tools, and those tools, such as automatic differentiation and tensor processing frameworks are missing from dependently-typed languages. Most attempts to such tools only replicate what already is, without reimagining what could be.</li>
+<li><strong>Lack of infrastructure</strong>: Novel architectures, for instance those that produce correct-by-construction dependent types, are difficult to prototype when the tooling doesn’t support structure. Type-driven development and the level of generic programming possible in dependently-typed languages simply isn’t possible in Python. Building genuinely new architectures requires new tools, and those tools, such as automatic differentiation and tensor processing frameworks are missing from dependently-typed languages. Most attempts to build such tools only replicate what already is, without reimagining what could be.</li>
 </ul>
 <p>These problems aren’t blocking. But solving them might unlock orders of magnitude more progress than pure scaling.</p>
 <hr />
@@ -179,22 +179,23 @@ I work on three fronts:</p>
 <ol type="1">
 <li><strong>New architectures</strong>: Understanding old, and designing new neural networks that natively consume and produce structured data</li>
 <li><strong>Mathematical Foundations</strong>: Building the mathematics necessary to state precisely what it means to generalise, especially on data structures recursive in nature</li>
-<li><strong>Infrastructure</strong>: Building the stack required to train such networks in dependently-typed languages, including automatic differentiation and tight elaborator integration</li>
+<li><strong>Infrastructure</strong>: Building the stack required to train such networks in dependently-typed languages: tensor processing, automatic differentiation and elaborator integration</li>
 </ol>
 <p>In all of these, I use category theory, the mathematics of structure and composition, as a central glue.</p>
 <hr />
 <p>Why category theory?</p>
 <p>Because the organisational principles needed to build better AI systems turn out to be the same principles needed to build better programming languages, and to do science in general.</p>
 <p>Any system that generalises well has discovered compositional structure in its domain. To generalise is to discover rules that apply parametrically, regardless of the size or shape of the input.
-And more consistent and modular you make your rules, the more it looks like you’re following categorical principles.</p>
+And the more consistent and modular you make your rules, the more it looks like you’re following categorical principles.</p>
 <p>I suspect any sufficiently capable reasoning system has, whether by design or discovery, converged on these principles.</p>
 <p>This raises a question: what might a formal theory of reasoning look like?</p>
+<p>To answer this, it helps to look at how other fields found their foundations.</p>
 <hr />
 <p>Consider alchemy.</p>
 <p>For centuries, alchemists mixed compounds through trial and error, chasing the elixir of life and the philosopher’s stone.
 But alchemy wasn’t bad, it was the best they knew back then.
 Alchemists made genuine discoveries.
-They discovered phosphorus, gunpowder<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, and they developed lab equipment.
+They discovered phosphorus, gunpowder<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, and developed lab equipment.
 But they couldn’t synthesise penicillin.
 They couldn’t build chemical manufacturing plants.
 They couldn’t cure diseases at scale.</p>
@@ -206,18 +207,18 @@ We now have petrochemical refineries, automated synthesis with minimal human ove
 These are incredible advancements, and they weren’t created by scaling up alchemy.
 They required discovering the foundational principles first, and the development of a new science, one alchemists could not imagine.</p>
 <center>
-<img src="../images/alchemy_to_chemistry.png" alt="Chemistry today is unimaginable to alchemists." width="750" />
+<img src="../images/alchemy_to_chemistry_with_arrow.png" alt="Chemistry today is unimaginable to alchemists." width="750" />
 </center>
 <p>Deep learning today feels like alchemy.
 We’re making remarkable strides, and LLMs are impressive feats of engineering.
 But we have very little understanding of their internals.
-Nobody made predictions of phenomena such as double descent, or lottery ticket hypothesis – phenomena which seemingly explain a part of their behaviour.
+Nobody predicted phenomena like double descent, or the lottery ticket hypothesis – phenomena that seemingly explain a part of their behaviour.
 We’re collecting an abundance of experimental data, but in our pursuit we have not been able to glue it all into a cohesive theory.</p>
 <hr />
 <p>There is something self-referential about this pursuit.</p>
 <p>To find a concise way to express how intelligent systems find good models of the world, it may be necessary to first reason better ourselves: to structure our own thoughts more clearly.
 If we’re poor learners ourselves, we won’t be able to describe learning well.</p>
-<p>Category theory is a tool for exactly this: organisational principles at a level high enough to enable restructuring of understanding, yet precise enough to avoid getting lost in meaning.</p>
+<p>Category theory is a tool for exactly this: a way to structure thought that is both general enough to allow us to reason about anything and also precise enough to avoid getting lost in meaning.</p>
 <p>The notion of intelligence has often carried a mythical quality, resisting precise formalisation alongside related concepts like consciousness, <a href="https://julesh.com/2019/11/27/categorical-cybernetics-a-manifesto/">cybernetics</a>, <a href="https://golem.ph.utexas.edu/category/2019/06/behavioral_mereology.html">autopoiesis</a>, and the notion of life itself.
 This was largely because the tools for formal specification were inadequate.
 But with the advent of <a href="https://www.youtube.com/watch?v=r_giN0VU7qo">21st century mathematics</a>, I believe we have the right abstractions to ask the right questions.</p>
