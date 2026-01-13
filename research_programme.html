@@ -16,7 +16,7 @@
         <meta name="author" content="Bruno Gavranovic" />
         <meta name="viewport" content="width=device-width" />
         <meta http-equiv="Cache-Control" content="max-age=86400, must-revalidate" />
-        <title>From Alchemy to Chemistry</title>
+        <title>The Intent Gap</title>
         <script src="./css/jquery.js"></script>
         <script src="./css/selectfile.js"></script>
         <link rel="stylesheet" type="text/css" title="hakyll_theme" href="./css/theprofessional.css" />
@@ -100,23 +100,24 @@
             </div>
         </div>
         </div>
-            <h3 id="from-alchemy-to-chemistry">From Alchemy to Chemistry</h3>
+            <h3 id="the-intent-gap">The Intent Gap</h3>
 <p>Software testing can only prove the presence of bugs, not their absence.</p>
 <p>This asymmetry limits how far we can scale.
-As software grows, each new component introduces failure modes that become impractical to detect by testing, making it difficult to ensure our intent is met.
-This is why software engineering teams have come to rely on a complicated hierarchy of trust and best practices. But these only go so far.</p>
-<p>The things we build are made out of clay.
+As software grows, each new component introduces failure modes that become impractical to detect by testing. This makes it difficult to ensure our intent is met.
+As a result, software engineering teams have come to rely on a complicated hierarchy of trust and best practices.
+But these only go so far.</p>
+<p>The software we are building is made out of clay.
 Clay houses need constant maintenance, and can only rise so high before collapsing under their weight.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>But testing is not the only way.</p>
+<p>What if there was another way?</p>
 <p>Programming languages like Idris and Lean let you <em>express your intent using code</em>, then verify intent is satisfied by <em>compiling</em>. Let me show you what I mean.</p>
 <p>Say you want to sort a list.
 In most languages, you’d write a function with a type like:</p>
 <center>
 <code>sort : List Int -&gt; List Int</code>.
 </center>
-<p>The requirement that the output is <em>sorted</em> is left out. The compiler will reject your code if you return a string instead of a list, but if you return an unsorted list, it stays silent.
-You have encoded your intent only partially.
-You have to test because you know something you never told the compiler.</p>
+<p>The requirement that the output is <em>sorted</em> is left out, creating an <strong>intent gap</strong>: the difference between what you’ve communicated to the compiler and your actual intent.
+The compiler will reject your code if you return a string instead of a list, but if you return an unsorted list, it stays silent.
+This gap is why you need to test, because you know something you never told the compiler.</p>
 <p>This is how most programmers have been taught to program.
 But type theory has advanced enough to change this.</p>
 <p>In Idris, you can write</p>
@@ -126,45 +127,55 @@ But type theory has advanced enough to change this.</p>
 <p>Here <code>SortedList xs</code> includes not just a list, but <em>a proof</em> that the list is sorted.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
 To implement this function you must have it return both the list and the proof.
 The bug of returning an unsorted list is rendered impossible: the compiler will simply not let you run that program.
-If you’ve written a function that satisfies your spec, you don’t need to test it, or have any uncertainty about what it does. If the spec matches your intent, there can be no bugs.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+And if the compiler accepts your program, you don’t need to test whether your intent is met.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+If the specification matches your intent, there can be no bugs.</p>
 <p>Languages like Idris and Lean make us rethink programming.
-Instead of writing code and then manually verifying it, you can <em>encode your intent</em> first, then implement it.
+Instead of writing code and then manually verifying it, you can now first <em>encode your intent</em>, and then implement it.
 The burden shifts from “does my code have bugs?” to “does my specification capture what I actually want?”.
 If it does, verification becomes mechanical: if it compiles, it’s correct.
 No testing needed.</p>
-<p>We’re no longer building with clay.
-We’re building with bricks and structural engineering.
-The reliability of our materials, and the precision of our theory lets us build things people a few centuries ago could not have dreamt of: space stations and rockets.
-Dependent types, through the same reliability and precision, do the same for software.</p>
+<p>Clay was eventually superseded by reinforced concrete, carbon fiber, and structural engineering.
+The reliability of these materials and the precision of our structural theories let us build things people a few centuries ago could not have dreamt of: space stations and rockets.
+Dependent types, through the same reliability and precision, will do the same for software.</p>
 <hr />
-<p>So, what’s the catch?</p>
-<p>There are two. First, specifying intent is hard. We often <a href="https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD667.html">don’t know what we want</a>.
-Writing code, like writing prose, reveals what we <em>actually</em> meant to say.</p>
+<p>So, what’s holding us back?</p>
+<p>There are two things. First, specifying intent is hard. We often <a href="https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD667.html">don’t know what we want</a>.
+The process of writing code, like writing prose, reveals what we <em>actually</em> meant to say.
+True understanding of our intent demands deep introspection and emerges only as a result of it.
+This introspection is difficult to measure and incentivise.</p>
 <p>Second, specifications have a surprising amount of <a href="http://johnsalvatier.org/blog/2017/reality-has-a-surprising-amount-of-detail">detail</a>.
-If you’re building a database, under tight deadlines you seldom have the luxury to internalise the mathematics needed to formally state <a href="https://arxiv.org/abs/1602.03501">invariants of databases with concrete data</a>, write it up in Lean, and translate shifting business requirements into such a system. This takes incredible effort, and is extremely error prone. No human can do it fast enough, and even if you have a PhD in this topic, the basics take months.</p>
-<p>It is much easier to just use MySQL and make your boss happy.</p>
+Take something as seemingly straightforward as <a href="https://arxiv.org/abs/1602.03501">database invariants</a>: they require pages of mathematical scaffolding just to state the basics.
+Even with a PhD in the field, coding this up in Lean takes months of intense concentration.
+Under normal industry conditions, with tight deadlines and shifting business requirements, you seldom have that luxury.
+It’s much easier to just use MySQL and vouch to your boss that your implementation is correct.</p>
 <center>
 <p><img src="../images/database_scary.png" alt="Example of mathematics from the aforementioned paper" width="600" /></p>
 Mathematics required to state some database invariants. From <a href="https://arxiv.org/abs/1602.03501">Algebraic Databases</a>.
 </center>
-<p>This is why proofs have taken a backseat in mainstream programming. Languages optimised for human convenience - such as Python or Javascript - have taken center stage, while languages optimised for correctness remain niche.</p>
-<p>But here’s the thing: more and more code is written by AI. Are we sure AI will keep writing code in languages optimised for <em>human</em> convenience?</p>
+<p>For these reasons – because understanding intent is hard, and implementing it even harder – proofs have taken a backseat in mainstream programming.
+Humans prefer languages convenient to them, so these languages have proliferated.
+Languages optimized for correctness remain niche.</p>
+<p>But that’s starting to change.
+We are employing AI systems to write more and more code, and these systems do not share our preferences.
+Are we sure AI will keep writing code in languages optimised for <em>human</em> convenience?</p>
 <hr />
-<p>Just like new paradigms overturned the once dominant Cobol, the mechanics of scale and proofs will eventually overturn languages made for human convenience.
-The difference is that most of that code won’t be written by humans.</p>
-<p>We’re already seeing it.
-Transformer-based models are helping mathematicians <a href="https://mathstodon.xyz/@tao/115591487350860999">solve open research problems</a>.
-It’s only a matter of time before people realise that the same approaches used for theorem proving are applicable to general programming.
-That’s when we’ll see the next AI wave.</p>
-<p>But there are obstacles in the way. LLM-based models excel in data-rich domains, but correctness-first languages are not one of them.</p>
-<p>By design, these languages are concise: a few hundred lines of specification can define possibly hundreds of thousands of lines of implementation.
-This makes them inherently data scarce, and starves LLMs of the training data they require.
-Is the <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">Bitter Lesson</a> actually <a href="https://theoryandpractice.org/2025/09/The%20Bittersweet%20Lesson/">bittersweet</a>?</p>
+<p>Just like new paradigms overturned the once dominant Cobol, the mechanics of scale and proofs will cause correctness-first languages to eventually overturn ones designed for human convenience.
+Just that this time, most of the code in the new paradigm won’t be written by humans.</p>
+<p>We’re already seeing the beginnings.
+Transformer-based models are writing an increasing amount of Lean code, and helping mathematicians <a href="https://mathstodon.xyz/@tao/115591487350860999">solve open research problems</a>.
+While this is restricted only to theorem proving, it’s only a matter of time before it becomes clear that the same approaches are applicable to general programming.
+That’s when we’ll see the next AI wave: scaling software not at the expense of safety, but because of it.</p>
+<p>Getting there, however, requires crossing some obstacles.</p>
+<p>The fundamental obstacles is that of data.
+Transformer-based models excel in data-rich domains, but correctness-first languages are not one of them.
+These languages are concise by design: a few hundred lines of specification can define hundreds of thousands of lines of implementation.
+This makes them data scarce, starving LLMs of the training data.
+The <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">Bitter Lesson</a> in this case might actually be <a href="https://theoryandpractice.org/2025/09/The%20Bittersweet%20Lesson/">bittersweet</a>.</p>
 <center>
 <p><img src="../images/data_scarcity.png" alt="Data scarcity" width="600" /></p>
 LLM-based models excel only in data-rich domains. From the paper <a href="https://storage.googleapis.com/deepmind-media/Era-of-Experience%20/The%20Era%20of%20Experience%20Paper.pdf">The Era of Experience</a>.
 </center>
-<p>It’s clear that puzzle pieces are still missing. And data scarcity is only part of the problem. We also have:</p>
+<p>There are also other, less-fundamental issues.</p>
 <ul>
 <li><strong>Blindness to structure</strong>: LLMs treat code as an extension of natural language, lacking mechanisms to leverage its structure. Any structure that our code has – usually represented as an inductive, dependently-typed abstract syntax tree – has to be flattened into a linear representation before the LLM can consume it.
 And when producing outputs, they are always produced in a linear order, strictly autoregressively (left to right), without any ability to backtrack or change previous outputs: models are append only.</li>
@@ -184,44 +195,47 @@ I work on three fronts:</p>
 <p>In all of these, I use category theory, the mathematics of structure and composition, as a central glue.</p>
 <hr />
 <p>Why category theory?</p>
-<p>Because the organisational principles needed to build better AI systems turn out to be the same principles needed to build better programming languages, and to do science in general.</p>
+<p>Because the organisational principles needed to build better AI systems turn out to be the same principles needed to build better programming languages, and to do <a href="https://learnct.lol/">science</a> in general.</p>
 <p>Any system that generalises well has discovered compositional structure in its domain. To generalise is to discover rules that apply parametrically, regardless of the size or shape of the input.
-And the more consistent and modular you make your rules, the more it looks like you’re following categorical principles.</p>
+And the more consistent and modular you make your rules, the more it looks like you’re following principles of category theory.</p>
 <p>I suspect any sufficiently capable reasoning system has, whether by design or discovery, converged on these principles.</p>
 <p>This raises a question: what might a formal theory of reasoning look like?</p>
 <hr />
 <p>To answer this, it helps to look at how other fields found their foundations.
 Consider alchemy.</p>
-<p>For centuries, alchemists mixed compounds through trial and error, chasing the elixir of life and the philosopher’s stone.
-But alchemy wasn’t bad, it was the best they knew back then.
-Alchemists made genuine discoveries.
+<p>For centuries, alchemists mixed compounds through trial and error, chasing the elixir of life and <a href="https://en.wikipedia.org/wiki/Panacea_(medicine)">panacea</a>, the cure for all diseases.
+But this does not make alchemists bad scientists.
+It was the best they knew back then.
+Alchemists encountered new and unexplained phenomena, and made genuine discoveries.
 They discovered phosphorus, gunpowder<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, and developed lab equipment.
-But they couldn’t synthesise penicillin.
-They couldn’t build chemical manufacturing plants.
-They couldn’t cure diseases at scale.</p>
+But because they lacked science, they couldn’t synthesise penicillin, build chemical manufacturing plants, or cure diseases at scale.</p>
 <p>Something else was required. Over time, we discovered the atom. We built the periodic table. We understood the idea of molecules, bonds, reactions, and thermodynamics.</p>
-<p>The result was chemistry, which is a field so different we gave it a new name.
+<p>The result was chemistry, which is a completely different field.
 Chemistry is reliable, controllable, and scalable in ways alchemy never could be.
-We <em>predicted new elements</em> before we ran the experiments.
-We now have petrochemical refineries, automated synthesis with minimal human oversight, and we can capture carbon from the atmosphere.
-These are incredible advancements, and they weren’t created by scaling up alchemy.
-They required discovering the foundational principles first, and the development of a new science, one alchemists could not imagine.</p>
+We <em>predicted new elements</em>.
+We built petrochemical refineries, synthesised organic compounds, and unlocked the ability to capture carbon from the atmosphere.
+Today, we can actually cure many of the diseases alchemists were trying and failing to cure.
+But we do it in a very different way.</p>
+<p>These are incredible advancements were not created by scaling up alchemy.
+They required that we discover fundamental principles first, and develop a whole new science: one unimaginable to alchemists.</p>
 <center>
 <img src="../images/alchemy_to_chemistry_with_arrow.png" alt="Chemistry today is unimaginable to alchemists." width="750" />
 </center>
-<p>Deep learning today feels like alchemy.
-We’re making remarkable strides, and LLMs are impressive feats of engineering.
+<p>Deep learning today feels like alchemy.</p>
+<p>We’re making remarkable strides, and LLMs are impressive feats of engineering.
 But we have very little understanding of their internals.
 Nobody predicted phenomena like double descent, or the lottery ticket hypothesis – phenomena that seemingly explain a part of their behaviour.
 We’re collecting an abundance of experimental data, but in our pursuit we have not been able to glue it all into a cohesive theory.</p>
 <hr />
 <p>In this pursuit, there is something self-referential.</p>
 <p>To find a concise way to express how intelligent systems find good models of the world, it may be necessary to first reason better ourselves: to structure our own thoughts more clearly.
-If we’re poor learners ourselves, we won’t be able to describe learning well.</p>
-<p>Category theory is a tool for exactly this. It’s a way to structure thought that is both general enough to allow us to reason about anything and also precise enough to avoid getting lost in meaning.</p>
-<p>The notion of intelligence has often carried a mythical quality, resisting precise formalisation alongside related concepts like consciousness, <a href="https://golem.ph.utexas.edu/category/2019/06/behavioral_mereology.html">autopoiesis</a>, and the notion of life itself.
+If we are poor learners, we will not be able to describe learning well.</p>
+<p>Category theory is a tool for learning. It’s a way to structure thought; one which is both general enough to allow us to reason about anything, but also one precise enough to prevent us from getting lost in meaning.</p>
+<p>The ability to learn – intelligence – has often carried a mythical quality.
+Throughout millenia, it resisted precise formalisation alongside related concepts like consciousness, autopoiesis, and life.
 This was largely because the tools for formal specification were inadequate.
-But with the advent of <a href="https://www.youtube.com/watch?v=r_giN0VU7qo">21st century mathematics</a>, I believe we have the right abstractions to ask the right questions.</p>
+But with the advent of <a href="https://www.youtube.com/watch?v=r_giN0VU7qo">21st century mathematics</a>, I believe we have the right abstractions.</p>
+<p>At least, to ask the right questions.</p>
 <p>Could category theory be the formal theory of reasoning we’re after?</p>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
