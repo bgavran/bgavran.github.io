@@ -7,8 +7,16 @@
         <description><![CDATA[Blog post from the website www.brunogavranovic.com]]></description>
         <atom:link href="http://brunogavranovic.com/rss.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Wed, 13 Mar 2024 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Mon, 20 Apr 2026 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Types and Neural Networks</title>
+    <link>http://brunogavranovic.com/posts/2026-04-20-types-and-neural-networks.html</link>
+    <description><![CDATA[LLMs generate code as flat token sequences, then typecheck after the fact. Can we make the output space itself be typed?]]></description>
+    <pubDate>Mon, 20 Apr 2026 00:00:00 UT</pubDate>
+    <guid>http://brunogavranovic.com/posts/2026-04-20-types-and-neural-networks.html</guid>
+    <dc:creator>Bruno Gavranović</dc:creator>
+</item>
+<item>
     <title>My PhD Thesis is out!</title>
     <link>http://brunogavranovic.com/posts/2024-03-13-my-thesis-is-out.html</link>
     <description><![CDATA[After four years in the making, I've finally defended, and published my PhD thesis.]]></description>
