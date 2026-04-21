@@ -186,7 +186,7 @@ But in domains where we know how to train models that <em>utilise structure duri
 Chess is one of those.
 The system AlphaZero utilises the game structure during training and <a href="https://arxiv.org/abs/1712.01815">reaches superhuman ELO (&gt;3400)</a> with ~30x fewer parameters than GPT-4 (&lt;60 million vs 1.8 trillion).</p>
 <p>These are stark results, and ones that give us a glimpse of what is possible by integrating type systems into the training loop of code generation models.
-I have written about this in detail <a href="https://www.brunogavranovic.com/posts/2026-04-20-diff-wrt-structure.html">here</a>.</p>
+I have written about this in detail <a href="https://www.brunogavranovic.com/posts/2026-04-20-types-and-neural-networks.html">here</a>.</p>
 <p>Building such systems, though, does not involve just research, but also infrastructure development.
 Current tooling is built in Python which, while it has some scaffolding to help us use types to filter out invalid outputs, is not fundamentally built around the idea that types can help us <a href="https://www.youtube.com/watch?v=v2yXrOkzt5w">reason about programs</a>.
 And in dependently typed languages in which we’d want to build such neural networks, the infrastructure for training them – starting from tensor processing and automatic differentiation facilities – does not exist.
